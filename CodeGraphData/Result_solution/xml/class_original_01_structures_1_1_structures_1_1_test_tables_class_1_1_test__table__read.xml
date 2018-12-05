@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read" kind="class" prot="public">
+    <compoundname>Original Structures::Structures::TestTablesClass::Test_table_read</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">TestCase</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a0cd66db5b3a880c1f53392ff97c74147" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>Original Structures.Structures.TestTablesClass.Test_table_read::file_path</definition>
+        <argsstring></argsstring>
+        <name>file_path</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="45" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="45" bodyend="-1"/>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__invalid__table__exception_1a3906f233d6b62ff9f6aab2b07685a64a" compoundref="_test_tables_class_8py" startline="212" endline="220">Original Structures.Structures.TestTablesClass.Test_invalid_table_exception.test_duplicate_index</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__invalid__table__exception_1a440eeb7f284a50a9e29cd78524cb48c4" compoundref="_test_tables_class_8py" startline="229" endline="261">Original Structures.Structures.TestTablesClass.Test_invalid_table_exception.test_incorrect_title</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test_table_importing_1a5f62e2c5a4fca03e8bb646cd013a96e1" compoundref="_test_tables_class_8py" startline="408" endline="414">Original Structures.Structures.TestTablesClass.TestTableImporting.test_merge_tables_with_duplicate_variables</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test_table_importing_1a5968274a89bd8732a9140a5645b50f6b" compoundref="_test_tables_class_8py" startline="375" endline="389">Original Structures.Structures.TestTablesClass.TestTableImporting.test_merge_tables_with_missing_and_extra_values</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test_table_importing_1a10bac556de664c3a7ff2d1b9c86ae810" compoundref="_test_tables_class_8py" startline="359" endline="374">Original Structures.Structures.TestTablesClass.TestTableImporting.test_merge_tables_with_one_column_dropped</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__invalid__table__exception_1ae263141999af55ce5957d91673ae99fc" compoundref="_test_tables_class_8py" startline="262" endline="276">Original Structures.Structures.TestTablesClass.Test_invalid_table_exception.test_missing_header_value</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__invalid__table__exception_1a4d27719eca7c98f89d3eefb5c06cdba3" compoundref="_test_tables_class_8py" startline="203" endline="211">Original Structures.Structures.TestTablesClass.Test_invalid_table_exception.test_missing_index</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__invalid__table__exception_1aa3bec635270f4b510b525e0808599115" compoundref="_test_tables_class_8py" startline="221" endline="228">Original Structures.Structures.TestTablesClass.Test_invalid_table_exception.test_missing_title</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__invalid__table__exception_1adc3a6239cc6d5ff9f1264599941e240e" compoundref="_test_tables_class_8py" startline="195" endline="202">Original Structures.Structures.TestTablesClass.Test_invalid_table_exception.test_missing_worksheet</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a931383709fc9d565079346e11da958de" compoundref="_test_tables_class_8py" startline="70" endline="85">Original Structures.Structures.TestTablesClass.Test_table_read.test_read_basic_table</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1aa003b1df30c7ba06442cf378609a33eb" compoundref="_test_tables_class_8py" startline="52" endline="69">Original Structures.Structures.TestTablesClass.Test_table_read.test_read_basic_table_direct_open</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1acd220d1d06d0746a41f8750a8cd5cd56" compoundref="_test_tables_class_8py" startline="86" endline="96">Original Structures.Structures.TestTablesClass.Test_table_read.test_read_basic_table_with_defaults</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a6fbf0ca7dfb93c2b073d9a031d91519e" compoundref="_test_tables_class_8py" startline="154" endline="175">Original Structures.Structures.TestTablesClass.Test_table_read.test_read_table_with_extra_data</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1ad1756effbeae7bb43b84b16e088aefc2" compoundref="_test_tables_class_8py" startline="107" endline="122">Original Structures.Structures.TestTablesClass.Test_table_read.test_read_table_with_missing_values</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a9882303145510571826d2d9c241003ef" compoundref="_test_tables_class_8py" startline="123" endline="138">Original Structures.Structures.TestTablesClass.Test_table_read.test_read_table_with_missing_values_in_bottom_right_corner</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a25efa96dfb58f15ac0c619a628434537" compoundref="_test_tables_class_8py" startline="97" endline="106">Original Structures.Structures.TestTablesClass.Test_table_read.test_read_table_with_no_title</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a53a29f1fe6ebfd54f1ad7b9e460e1415" compoundref="_test_tables_class_8py" startline="139" endline="153">Original Structures.Structures.TestTablesClass.Test_table_read.test_read_table_with_offset_from_A1</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a015f05d9a95a128b80d0ffd8848b1d74" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>Original Structures.Structures.TestTablesClass.Test_table_read::test_excel_file</definition>
+        <argsstring></argsstring>
+        <name>test_excel_file</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="46" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="46" bodyend="-1"/>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a562397c5815e49874036131198326b9f" compoundref="_test_tables_class_8py" startline="48" endline="51">Original Structures.Structures.TestTablesClass.Test_table_read.tearDown</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__invalid__table__exception_1a64878e2a537e64a7a13cb181db7ce64d" compoundref="_test_tables_class_8py" startline="182" endline="186">Original Structures.Structures.TestTablesClass.Test_invalid_table_exception.tearDown</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__invalid__table__exception_1a3906f233d6b62ff9f6aab2b07685a64a" compoundref="_test_tables_class_8py" startline="212" endline="220">Original Structures.Structures.TestTablesClass.Test_invalid_table_exception.test_duplicate_index</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__invalid__table__exception_1a440eeb7f284a50a9e29cd78524cb48c4" compoundref="_test_tables_class_8py" startline="229" endline="261">Original Structures.Structures.TestTablesClass.Test_invalid_table_exception.test_incorrect_title</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__invalid__table__exception_1ae263141999af55ce5957d91673ae99fc" compoundref="_test_tables_class_8py" startline="262" endline="276">Original Structures.Structures.TestTablesClass.Test_invalid_table_exception.test_missing_header_value</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__invalid__table__exception_1a4d27719eca7c98f89d3eefb5c06cdba3" compoundref="_test_tables_class_8py" startline="203" endline="211">Original Structures.Structures.TestTablesClass.Test_invalid_table_exception.test_missing_index</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__invalid__table__exception_1aa3bec635270f4b510b525e0808599115" compoundref="_test_tables_class_8py" startline="221" endline="228">Original Structures.Structures.TestTablesClass.Test_invalid_table_exception.test_missing_title</referencedby>
+        <referencedby refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a931383709fc9d565079346e11da958de" compoundref="_test_tables_class_8py" startline="70" endline="85">Original Structures.Structures.TestTablesClass.Test_table_read.test_read_basic_table</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a181d6f2bb28329acaaea7a6468f0df42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def Original Structures.Structures.TestTablesClass.Test_table_read.setUp</definition>
+        <argsstring></argsstring>
+        <name>setUp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Use a single Test File</verbatim> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="43" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="43" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a562397c5815e49874036131198326b9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def Original Structures.Structures.TestTablesClass.Test_table_read.tearDown</definition>
+        <argsstring></argsstring>
+        <name>tearDown</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Close the Test file</verbatim> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="48" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="48" bodyend="51"/>
+        <references refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a015f05d9a95a128b80d0ffd8848b1d74" compoundref="_test_tables_class_8py" startline="46">Original Structures.Structures.TestTablesClass.Test_table_read.test_excel_file</references>
+      </memberdef>
+      <memberdef kind="function" id="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1aa003b1df30c7ba06442cf378609a33eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def Original Structures.Structures.TestTablesClass.Test_table_read.test_read_basic_table_direct_open</definition>
+        <argsstring></argsstring>
+        <name>test_read_basic_table_direct_open</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="52" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="52" bodyend="69"/>
+        <references refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a0cd66db5b3a880c1f53392ff97c74147" compoundref="_test_tables_class_8py" startline="45">Original Structures.Structures.TestTablesClass.Test_table_read.file_path</references>
+        <references refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_table_1a0aa0b6a0dc15757eafac12c01615e8b8" compoundref="_tables_8py" startline="126">Original Structures.Structures.Tables.Table.file_path</references>
+      </memberdef>
+      <memberdef kind="function" id="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a931383709fc9d565079346e11da958de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def Original Structures.Structures.TestTablesClass.Test_table_read.test_read_basic_table</definition>
+        <argsstring></argsstring>
+        <name>test_read_basic_table</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="70" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="70" bodyend="85"/>
+        <references refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a0cd66db5b3a880c1f53392ff97c74147" compoundref="_test_tables_class_8py" startline="45">Original Structures.Structures.TestTablesClass.Test_table_read.file_path</references>
+        <references refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_table_1a0aa0b6a0dc15757eafac12c01615e8b8" compoundref="_tables_8py" startline="126">Original Structures.Structures.Tables.Table.file_path</references>
+        <references refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a015f05d9a95a128b80d0ffd8848b1d74" compoundref="_test_tables_class_8py" startline="46">Original Structures.Structures.TestTablesClass.Test_table_read.test_excel_file</references>
+      </memberdef>
+      <memberdef kind="function" id="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1acd220d1d06d0746a41f8750a8cd5cd56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def Original Structures.Structures.TestTablesClass.Test_table_read.test_read_basic_table_with_defaults</definition>
+        <argsstring></argsstring>
+        <name>test_read_basic_table_with_defaults</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="86" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="86" bodyend="96"/>
+        <references refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a0cd66db5b3a880c1f53392ff97c74147" compoundref="_test_tables_class_8py" startline="45">Original Structures.Structures.TestTablesClass.Test_table_read.file_path</references>
+        <references refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_table_1a0aa0b6a0dc15757eafac12c01615e8b8" compoundref="_tables_8py" startline="126">Original Structures.Structures.Tables.Table.file_path</references>
+      </memberdef>
+      <memberdef kind="function" id="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a25efa96dfb58f15ac0c619a628434537" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def Original Structures.Structures.TestTablesClass.Test_table_read.test_read_table_with_no_title</definition>
+        <argsstring></argsstring>
+        <name>test_read_table_with_no_title</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="97" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="97" bodyend="106"/>
+        <references refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a0cd66db5b3a880c1f53392ff97c74147" compoundref="_test_tables_class_8py" startline="45">Original Structures.Structures.TestTablesClass.Test_table_read.file_path</references>
+        <references refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_table_1a0aa0b6a0dc15757eafac12c01615e8b8" compoundref="_tables_8py" startline="126">Original Structures.Structures.Tables.Table.file_path</references>
+      </memberdef>
+      <memberdef kind="function" id="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1ad1756effbeae7bb43b84b16e088aefc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def Original Structures.Structures.TestTablesClass.Test_table_read.test_read_table_with_missing_values</definition>
+        <argsstring></argsstring>
+        <name>test_read_table_with_missing_values</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="107" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="107" bodyend="122"/>
+        <references refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a0cd66db5b3a880c1f53392ff97c74147" compoundref="_test_tables_class_8py" startline="45">Original Structures.Structures.TestTablesClass.Test_table_read.file_path</references>
+        <references refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_table_1a0aa0b6a0dc15757eafac12c01615e8b8" compoundref="_tables_8py" startline="126">Original Structures.Structures.Tables.Table.file_path</references>
+      </memberdef>
+      <memberdef kind="function" id="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a9882303145510571826d2d9c241003ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def Original Structures.Structures.TestTablesClass.Test_table_read.test_read_table_with_missing_values_in_bottom_right_corner</definition>
+        <argsstring></argsstring>
+        <name>test_read_table_with_missing_values_in_bottom_right_corner</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="123" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="123" bodyend="138"/>
+        <references refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a0cd66db5b3a880c1f53392ff97c74147" compoundref="_test_tables_class_8py" startline="45">Original Structures.Structures.TestTablesClass.Test_table_read.file_path</references>
+        <references refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_table_1a0aa0b6a0dc15757eafac12c01615e8b8" compoundref="_tables_8py" startline="126">Original Structures.Structures.Tables.Table.file_path</references>
+      </memberdef>
+      <memberdef kind="function" id="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a53a29f1fe6ebfd54f1ad7b9e460e1415" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def Original Structures.Structures.TestTablesClass.Test_table_read.test_read_table_with_offset_from_A1</definition>
+        <argsstring></argsstring>
+        <name>test_read_table_with_offset_from_A1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="139" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="139" bodyend="153"/>
+        <references refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a0cd66db5b3a880c1f53392ff97c74147" compoundref="_test_tables_class_8py" startline="45">Original Structures.Structures.TestTablesClass.Test_table_read.file_path</references>
+        <references refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_table_1a0aa0b6a0dc15757eafac12c01615e8b8" compoundref="_tables_8py" startline="126">Original Structures.Structures.Tables.Table.file_path</references>
+      </memberdef>
+      <memberdef kind="function" id="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a6fbf0ca7dfb93c2b073d9a031d91519e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def Original Structures.Structures.TestTablesClass.Test_table_read.test_read_table_with_extra_data</definition>
+        <argsstring></argsstring>
+        <name>test_read_table_with_extra_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="154" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="154" bodyend="175"/>
+        <references refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a0cd66db5b3a880c1f53392ff97c74147" compoundref="_test_tables_class_8py" startline="45">Original Structures.Structures.TestTablesClass.Test_table_read.file_path</references>
+        <references refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_table_1a0aa0b6a0dc15757eafac12c01615e8b8" compoundref="_tables_8py" startline="126">Original Structures.Structures.Tables.Table.file_path</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="45">
+        <label>Original Structures.Structures.TestTablesClass.Test_table_read</label>
+        <link refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read"/>
+        <childnode refid="46" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>TestCase</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="47">
+        <label>Original Structures.Structures.TestTablesClass.Test_table_read</label>
+        <link refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read"/>
+        <childnode refid="48" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>TestCase</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="42" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="42" bodyend="176"/>
+    <listofallmembers>
+      <member refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a0cd66db5b3a880c1f53392ff97c74147" prot="public" virt="non-virtual"><scope>Original Structures::Structures::TestTablesClass::Test_table_read</scope><name>file_path</name></member>
+      <member refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a181d6f2bb28329acaaea7a6468f0df42" prot="public" virt="non-virtual"><scope>Original Structures::Structures::TestTablesClass::Test_table_read</scope><name>setUp</name></member>
+      <member refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a562397c5815e49874036131198326b9f" prot="public" virt="non-virtual"><scope>Original Structures::Structures::TestTablesClass::Test_table_read</scope><name>tearDown</name></member>
+      <member refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a015f05d9a95a128b80d0ffd8848b1d74" prot="public" virt="non-virtual"><scope>Original Structures::Structures::TestTablesClass::Test_table_read</scope><name>test_excel_file</name></member>
+      <member refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a931383709fc9d565079346e11da958de" prot="public" virt="non-virtual"><scope>Original Structures::Structures::TestTablesClass::Test_table_read</scope><name>test_read_basic_table</name></member>
+      <member refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1aa003b1df30c7ba06442cf378609a33eb" prot="public" virt="non-virtual"><scope>Original Structures::Structures::TestTablesClass::Test_table_read</scope><name>test_read_basic_table_direct_open</name></member>
+      <member refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1acd220d1d06d0746a41f8750a8cd5cd56" prot="public" virt="non-virtual"><scope>Original Structures::Structures::TestTablesClass::Test_table_read</scope><name>test_read_basic_table_with_defaults</name></member>
+      <member refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a6fbf0ca7dfb93c2b073d9a031d91519e" prot="public" virt="non-virtual"><scope>Original Structures::Structures::TestTablesClass::Test_table_read</scope><name>test_read_table_with_extra_data</name></member>
+      <member refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1ad1756effbeae7bb43b84b16e088aefc2" prot="public" virt="non-virtual"><scope>Original Structures::Structures::TestTablesClass::Test_table_read</scope><name>test_read_table_with_missing_values</name></member>
+      <member refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a9882303145510571826d2d9c241003ef" prot="public" virt="non-virtual"><scope>Original Structures::Structures::TestTablesClass::Test_table_read</scope><name>test_read_table_with_missing_values_in_bottom_right_corner</name></member>
+      <member refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a25efa96dfb58f15ac0c619a628434537" prot="public" virt="non-virtual"><scope>Original Structures::Structures::TestTablesClass::Test_table_read</scope><name>test_read_table_with_no_title</name></member>
+      <member refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read_1a53a29f1fe6ebfd54f1ad7b9e460e1415" prot="public" virt="non-virtual"><scope>Original Structures::Structures::TestTablesClass::Test_table_read</scope><name>test_read_table_with_offset_from_A1</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

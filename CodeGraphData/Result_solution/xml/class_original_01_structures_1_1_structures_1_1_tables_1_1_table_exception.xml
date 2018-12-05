@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_original_01_structures_1_1_structures_1_1_tables_1_1_table_exception" kind="class" prot="public">
+    <compoundname>Original Structures::Structures::Tables::TableException</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Exception</basecompoundref>
+    <derivedcompoundref refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_invalid_table" prot="public" virt="non-virtual">Original Structures.Structures.Tables.InvalidTable</derivedcompoundref>
+    <derivedcompoundref refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_invalid_variable" prot="public" virt="non-virtual">Original Structures.Structures.Tables.InvalidVariable</derivedcompoundref>
+    <derivedcompoundref refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_missing_spreadsheet" prot="public" virt="non-virtual">Original Structures.Structures.Tables.MissingSpreadsheet</derivedcompoundref>
+    <derivedcompoundref refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_missing_table" prot="public" virt="non-virtual">Original Structures.Structures.Tables.MissingTable</derivedcompoundref>
+    <derivedcompoundref refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_variable_not_set" prot="public" virt="non-virtual">Original Structures.Structures.Tables.VariableNotSet</derivedcompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="31">
+        <label>Original Structures.Structures.Tables.InvalidVariable</label>
+        <link refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_invalid_variable"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>Original Structures.Structures.Tables.MissingTable</label>
+        <link refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_missing_table"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>Original Structures.Structures.Tables.MissingSpreadsheet</label>
+        <link refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_missing_spreadsheet"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>Original Structures.Structures.Tables.TableException</label>
+        <link refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_table_exception"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>Exception</label>
+      </node>
+      <node id="30">
+        <label>Original Structures.Structures.Tables.InvalidTable</label>
+        <link refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_invalid_table"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>Original Structures.Structures.Tables.VariableNotSet</label>
+        <link refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_variable_not_set"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="35">
+        <label>Original Structures.Structures.Tables.TableException</label>
+        <link refid="class_original_01_structures_1_1_structures_1_1_tables_1_1_table_exception"/>
+        <childnode refid="36" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>Exception</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/Tables.py" line="10" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/Tables.py" bodystart="10" bodyend="-1"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

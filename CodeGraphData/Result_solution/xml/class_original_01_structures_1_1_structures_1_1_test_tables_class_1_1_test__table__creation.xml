@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__creation" kind="class" prot="public">
+    <compoundname>Original Structures::Structures::TestTablesClass::Test_table_creation</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">TestCase</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__creation_1a0f4dd9a83a73e6fea625d9ea598a846d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def Original Structures.Structures.TestTablesClass.Test_table_creation.test_creation_with_all_parameters</definition>
+        <argsstring></argsstring>
+        <name>test_creation_with_all_parameters</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Test create table instant with all attributes defined</verbatim> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="9" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="9" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__creation_1a6c1e1281648b615bee0752e48e0b71ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def Original Structures.Structures.TestTablesClass.Test_table_creation.test_creation_with_default_parameters</definition>
+        <argsstring></argsstring>
+        <name>test_creation_with_default_parameters</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Test create table instant with only required attributes defined</verbatim> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="27" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="27" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="42">
+        <label>unittest::TestCase</label>
+      </node>
+      <node id="41">
+        <label>Original Structures.Structures.TestTablesClass.Test_table_creation</label>
+        <link refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__creation"/>
+        <childnode refid="42" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="44">
+        <label>unittest::TestCase</label>
+      </node>
+      <node id="43">
+        <label>Original Structures.Structures.TestTablesClass.Test_table_creation</label>
+        <link refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__creation"/>
+        <childnode refid="44" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="8" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="8" bodyend="42"/>
+    <listofallmembers>
+      <member refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__creation_1a0f4dd9a83a73e6fea625d9ea598a846d" prot="public" virt="non-virtual"><scope>Original Structures::Structures::TestTablesClass::Test_table_creation</scope><name>test_creation_with_all_parameters</name></member>
+      <member refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__creation_1a6c1e1281648b615bee0752e48e0b71ed" prot="public" virt="non-virtual"><scope>Original Structures::Structures::TestTablesClass::Test_table_creation</scope><name>test_creation_with_default_parameters</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

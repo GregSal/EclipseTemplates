@@ -1,0 +1,8 @@
+ID,Type,TreatmentSite,Diagnosis,Description,,
+Template Test,Structure,All Sites,Sick,Test Template,,
+ID,Name,StructureCode,CodeScheme,CodeSchemeVersion,VolumeType,ColorAndStyle
+CIED,Pacemaker or other CIED,5429,RADLEX,3.8,None,Blue
+Wire,Wire on skin surface for contrast,5453,RADLEX,3.8,None,Red
+Prosthesis,Metal Prosthesis or pin,28823,RADLEX,3.8,None,Green
+Dental Fillings,Dental Fillings Artifacts,11296,RADLEX,3.8,None,Yellow
+Implant,Hign density implant causing Metal Artifacts,5429,RADLEX,3.8,None,White

@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_original_01_structures_1_1_structures_1_1_select_templates" kind="namespace">
+    <compoundname>Original Structures::Structures::SelectTemplates</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespace_original_01_structures_1_1_structures_1_1_select_templates_1ac437ba19378b145e857dc8e2bdd769f4" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Original Structures::Structures::SelectTemplates.TEMPLATE_LIST_FILE</definition>
+        <argsstring></argsstring>
+        <name>TEMPLATE_LIST_FILE</name>
+        <initializer>= &apos;Template List.xlsx&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/SelectTemplates.py" line="7" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/SelectTemplates.py" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_original_01_structures_1_1_structures_1_1_select_templates_1a0881eb6606dcc8c8eba7ad80a409aa52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def Original Structures.Structures.SelectTemplates.define_template_list</definition>
+        <argsstring></argsstring>
+        <name>define_template_list</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Create a dictionary with Type Variable values that define the template list columns.
+</verbatim> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/SelectTemplates.py" line="14" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/SelectTemplates.py" bodystart="14" bodyend="31"/>
+        <referencedby refid="namespace_original_01_structures_1_1_structures_1_1_select_templates_1ad6a067a5582703d078d585b273490ec7" compoundref="_select_templates_8py" startline="32" endline="44">Original Structures.Structures.SelectTemplates.import_template_list</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespace_original_01_structures_1_1_structures_1_1_select_templates_1ad6a067a5582703d078d585b273490ec7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def Original Structures.Structures.SelectTemplates.import_template_list</definition>
+        <argsstring></argsstring>
+        <name>import_template_list</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/SelectTemplates.py" line="32" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/SelectTemplates.py" bodystart="32" bodyend="44"/>
+        <references refid="namespace_original_01_structures_1_1_structures_1_1_select_templates_1a0881eb6606dcc8c8eba7ad80a409aa52" compoundref="_select_templates_8py" startline="14" endline="31">Original Structures.Structures.SelectTemplates.define_template_list</references>
+        <referencedby refid="namespace_original_01_structures_1_1_structures_1_1_select_templates_1ad428687807d2f38aa9edc3dc2ce07ac7" compoundref="_select_templates_8py" startline="45" endline="57">Original Structures.Structures.SelectTemplates.select_templates</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespace_original_01_structures_1_1_structures_1_1_select_templates_1ad428687807d2f38aa9edc3dc2ce07ac7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def Original Structures.Structures.SelectTemplates.select_templates</definition>
+        <argsstring></argsstring>
+        <name>select_templates</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/SelectTemplates.py" line="45" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/SelectTemplates.py" bodystart="45" bodyend="57"/>
+        <references refid="namespace_original_01_structures_1_1_structures_1_1_select_templates_1ad6a067a5582703d078d585b273490ec7" compoundref="_select_templates_8py" startline="32" endline="44">Original Structures.Structures.SelectTemplates.import_template_list</references>
+        <referencedby refid="namespace_original_01_structures_1_1_structures_1_1_select_templates_1a42ae173a3b802b39535c6d14e7d32850" compoundref="_select_templates_8py" startline="58" endline="67">Original Structures.Structures.SelectTemplates.main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespace_original_01_structures_1_1_structures_1_1_select_templates_1a42ae173a3b802b39535c6d14e7d32850" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def Original Structures.Structures.SelectTemplates.main</definition>
+        <argsstring></argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/SelectTemplates.py" line="58" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/SelectTemplates.py" bodystart="58" bodyend="67"/>
+        <references refid="namespace_original_01_structures_1_1_structures_1_1_structure_data_1aec3f6fbecdae2ca68bc6e3a4bf2bb452" compoundref="_structure_data_8py" startline="79" endline="92">Original Structures.Structures.StructureData.build_structures_lookup</references>
+        <references refid="namespace_original_01_structures_1_1_structures_1_1_write_structure_template_1a0bac5fcda87e855b54013eb012fdac4a" compoundref="_write_structure_template_8py" startline="129" endline="161">Original Structures.Structures.WriteStructureTemplate.build_templates</references>
+        <references refid="namespace_original_01_structures_1_1_structures_1_1_select_templates_1ad428687807d2f38aa9edc3dc2ce07ac7" compoundref="_select_templates_8py" startline="45" endline="57">Original Structures.Structures.SelectTemplates.select_templates</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/SelectTemplates.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

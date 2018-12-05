@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="_build_template_8py" kind="file">
+    <compoundname>BuildTemplate.py</compoundname>
+    <innernamespace refid="namespace_original_01_structures_1_1_structures_1_1_build_template">Original Structures::Structures::BuildTemplate</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespace_original_01_structures_1_1_structures_1_1_build_template" refkind="compound"><highlight class="keyword">from</highlight><highlight class="normal"><sp/>StructureData<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>build_structures_lookup</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>WriteStructureTemplate<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>build_templates</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>SelectTemplates<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>select_templates</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>pathlib<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Path</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">#base_path<sp/>=<sp/>Path(r&apos;C:\Users\gsalomon\OneDrive<sp/>for<sp/>Business<sp/>1\Structure<sp/>Dictionary&apos;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="namespace_original_01_structures_1_1_structures_1_1_build_template_1afdfe35279b1b5ee13745790ba93a9126" refkind="member"><highlight class="normal">base_path<sp/>=<sp/>Path(</highlight><highlight class="stringliteral">r&apos;C:\Users\gsalomon\OneDrive<sp/>for<sp/>Business<sp/>1\Structure<sp/>Dictionary\Template<sp/>Spreadsheets&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">#base_path<sp/>=<sp/>Path(r&quot;C:\Users\Greg\OneDrive<sp/>-<sp/>Queen&apos;s<sp/>University\Structure<sp/>Dictionary&quot;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">#base_path<sp/>=<sp/>Path(r&quot;C:\Users\Greg\OneDrive<sp/>-<sp/>Queen&apos;s<sp/>University\Structure<sp/>Dictionary\Templates\New<sp/>Templates\V13&quot;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">#base_path<sp/>=<sp/>Path(r&apos;C:\Users\gsalomon\OneDrive<sp/>for<sp/>Business<sp/>1\Structure<sp/>Dictionary&apos;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="namespace_original_01_structures_1_1_structures_1_1_build_template_1ab9959e1cfade406cb9463d90516da1e2" refkind="member"><highlight class="normal">structures_lookup_file_name<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;Structure<sp/>Lookup.xlsx&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="namespace_original_01_structures_1_1_structures_1_1_build_template_1a9d99023762fea79e4c73a9762136abf7" refkind="member"><highlight class="normal">structures_file_path<sp/>=<sp/>base_path<sp/>/<sp/>structures_lookup_file_name</highlight></codeline>
+<codeline lineno="16" refid="namespace_original_01_structures_1_1_structures_1_1_build_template_1a7629a0fc8e073f1471ce3ea5bd432716" refkind="member"><highlight class="normal">structures_lookup<sp/>=<sp/><ref refid="namespace_original_01_structures_1_1_structures_1_1_structure_data_1aec3f6fbecdae2ca68bc6e3a4bf2bb452" kindref="member">build_structures_lookup</ref>(structures_file_path)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="namespace_original_01_structures_1_1_structures_1_1_build_template_1adcefd7b7dc8118204ac1ac39b1805acc" refkind="member"><highlight class="normal">templates<sp/>=<sp/>[</highlight><highlight class="stringliteral">&apos;Lung<sp/>VMAT&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;Lung<sp/>(SBRT)&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&apos;Gyne<sp/>VMAT&apos;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="19" refid="namespace_original_01_structures_1_1_structures_1_1_build_template_1a0ed33a650e9c1a5021dd537111da7f5b" refkind="member"><highlight class="normal">template_list<sp/>=<sp/><ref refid="namespace_original_01_structures_1_1_structures_1_1_select_templates_1ad428687807d2f38aa9edc3dc2ce07ac7" kindref="member">select_templates</ref>(base_path,<sp/>templates)</highlight></codeline>
+<codeline lineno="20" refid="namespace_original_01_structures_1_1_structures_1_1_build_template_1a265e54a5edacb20c9a9a35b72ea345eb" refkind="member"><highlight class="normal">structure_data<sp/>=<sp/><ref refid="namespace_original_01_structures_1_1_structures_1_1_write_structure_template_1a0bac5fcda87e855b54013eb012fdac4a" kindref="member">build_templates</ref>(template_list,<sp/>base_path,<sp/>structures_lookup,<sp/>include_structure_list=</highlight><highlight class="keyword">False</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="namespace_original_01_structures_1_1_structures_1_1_build_template_1adba81f2a4e48c71d50a5e8dcb136d6a4" refkind="member"><highlight class="normal">structures_file_name<sp/>=<sp/>base_path<sp/>/<sp/></highlight><highlight class="stringliteral">&apos;Lung<sp/>Structure<sp/>data.txt&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">structure_data.to_csv(str(structures_file_name),<sp/>sep=</highlight><highlight class="stringliteral">&apos;;&apos;</highlight><highlight class="normal">,<sp/>index=</highlight><highlight class="keyword">False</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/BuildTemplate.py"/>
+  </compounddef>
+</doxygen>

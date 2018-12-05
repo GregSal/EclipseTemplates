@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_original_01_structures_1_1_structures" kind="namespace">
+    <compoundname>Original Structures::Structures</compoundname>
+    <innernamespace refid="namespace_original_01_structures_1_1_structures_1_1_build_template">Original Structures::Structures::BuildTemplate</innernamespace>
+    <innernamespace refid="namespace_original_01_structures_1_1_structures_1_1_select_templates">Original Structures::Structures::SelectTemplates</innernamespace>
+    <innernamespace refid="namespace_original_01_structures_1_1_structures_1_1_structure_data">Original Structures::Structures::StructureData</innernamespace>
+    <innernamespace refid="namespace_original_01_structures_1_1_structures_1_1_tables">Original Structures::Structures::Tables</innernamespace>
+    <innernamespace refid="namespace_original_01_structures_1_1_structures_1_1template__dict">Original Structures::Structures::template_dict</innernamespace>
+    <innernamespace refid="namespace_original_01_structures_1_1_structures_1_1_test_tables_class">Original Structures::Structures::TestTablesClass</innernamespace>
+    <innernamespace refid="namespace_original_01_structures_1_1_structures_1_1_write_structure_template">Original Structures::Structures::WriteStructureTemplate</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/__init__.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

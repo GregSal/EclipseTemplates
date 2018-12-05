@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_original_01_structures_1_1_structures_1_1_test_tables_class" kind="namespace">
+    <compoundname>Original Structures::Structures::TestTablesClass</compoundname>
+    <innerclass refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__creation" prot="public">Original Structures::Structures::TestTablesClass::Test_table_creation</innerclass>
+    <innerclass refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__table__read" prot="public">Original Structures::Structures::TestTablesClass::Test_table_read</innerclass>
+    <innerclass refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test__invalid__table__exception" prot="public">Original Structures::Structures::TestTablesClass::Test_invalid_table_exception</innerclass>
+    <innerclass refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test___variable__creation" prot="public">Original Structures::Structures::TestTablesClass::Test_Variable_creation</innerclass>
+    <innerclass refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test_table_importing" prot="public">Original Structures::Structures::TestTablesClass::TestTableImporting</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespace_original_01_structures_1_1_structures_1_1_test_tables_class_1ad6fdd383acf31020fa622c112dcfa16b" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple Original Structures::Structures::TestTablesClass.TableClassTests</definition>
+        <argsstring></argsstring>
+        <name>TableClassTests</name>
+        <initializer>= unittest.TestSuite()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="7" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_original_01_structures_1_1_structures_1_1_test_tables_class_1a4e7b2e2dea8175fe3f00ad2a31dedde5" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple Original Structures::Structures::TestTablesClass.VariableClassTests</definition>
+        <argsstring></argsstring>
+        <name>VariableClassTests</name>
+        <initializer>= unittest.TestSuite()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="277" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="277" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_original_01_structures_1_1_structures_1_1_test_tables_class_1a1c1ce821dc993cb64fdaefc2304d3ad7" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple Original Structures::Structures::TestTablesClass.TableOperationsTests</definition>
+        <argsstring></argsstring>
+        <name>TableOperationsTests</name>
+        <initializer>= unittest.TestSuite()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="307" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="307" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_original_01_structures_1_1_structures_1_1_test_tables_class_1af90f857c046339aeee0e7f097a7b7c65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def Original Structures.Structures.TestTablesClass.test_creation_with_all_parameters</definition>
+        <argsstring></argsstring>
+        <name>test_creation_with_all_parameters</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Test create Variable instance with all attributes defined</verbatim> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="282" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="282" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_original_01_structures_1_1_structures_1_1_test_tables_class_1a9adabcce313f6f27d5e99908955f4fcc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def Original Structures.Structures.TestTablesClass.test_creation_without_default_parameter</definition>
+        <argsstring></argsstring>
+        <name>test_creation_without_default_parameter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Test create TemplateAttribute instance with only required attributes defined</verbatim> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="294" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="294" bodyend="306"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

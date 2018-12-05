@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_original_01_structures_1_1_structures_1_1_build_template" kind="namespace">
+    <compoundname>Original Structures::Structures::BuildTemplate</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespace_original_01_structures_1_1_structures_1_1_build_template_1afdfe35279b1b5ee13745790ba93a9126" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple Original Structures::Structures::BuildTemplate.base_path</definition>
+        <argsstring></argsstring>
+        <name>base_path</name>
+        <initializer>= Path(r&apos;C:\Users\gsalomon\OneDrive for Business 1\Structure Dictionary\Template Spreadsheets&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/BuildTemplate.py" line="8" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/BuildTemplate.py" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_original_01_structures_1_1_structures_1_1_build_template_1ab9959e1cfade406cb9463d90516da1e2" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Original Structures::Structures::BuildTemplate.structures_lookup_file_name</definition>
+        <argsstring></argsstring>
+        <name>structures_lookup_file_name</name>
+        <initializer>= &apos;Structure Lookup.xlsx&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/BuildTemplate.py" line="14" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/BuildTemplate.py" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_original_01_structures_1_1_structures_1_1_build_template_1a9d99023762fea79e4c73a9762136abf7" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>Original Structures::Structures::BuildTemplate.structures_file_path</definition>
+        <argsstring></argsstring>
+        <name>structures_file_path</name>
+        <initializer>= <ref refid="namespace_original_01_structures_1_1_structures_1_1_build_template_1afdfe35279b1b5ee13745790ba93a9126" kindref="member">base_path</ref>/<ref refid="namespace_original_01_structures_1_1_structures_1_1_build_template_1ab9959e1cfade406cb9463d90516da1e2" kindref="member">structures_lookup_file_name</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/BuildTemplate.py" line="15" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/BuildTemplate.py" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_original_01_structures_1_1_structures_1_1_build_template_1a7629a0fc8e073f1471ce3ea5bd432716" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple Original Structures::Structures::BuildTemplate.structures_lookup</definition>
+        <argsstring></argsstring>
+        <name>structures_lookup</name>
+        <initializer>= build_structures_lookup(<ref refid="namespace_original_01_structures_1_1_structures_1_1_build_template_1a9d99023762fea79e4c73a9762136abf7" kindref="member">structures_file_path</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/BuildTemplate.py" line="16" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/BuildTemplate.py" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_original_01_structures_1_1_structures_1_1_build_template_1adcefd7b7dc8118204ac1ac39b1805acc" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list Original Structures::Structures::BuildTemplate.templates</definition>
+        <argsstring></argsstring>
+        <name>templates</name>
+        <initializer>= [&apos;Lung VMAT&apos;,&apos;Lung (SBRT)&apos;, &apos;Gyne VMAT&apos;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/BuildTemplate.py" line="18" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/BuildTemplate.py" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_original_01_structures_1_1_structures_1_1_build_template_1a0ed33a650e9c1a5021dd537111da7f5b" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple Original Structures::Structures::BuildTemplate.template_list</definition>
+        <argsstring></argsstring>
+        <name>template_list</name>
+        <initializer>= select_templates(<ref refid="namespace_original_01_structures_1_1_structures_1_1_build_template_1afdfe35279b1b5ee13745790ba93a9126" kindref="member">base_path</ref>, <ref refid="namespace_original_01_structures_1_1_structures_1_1_build_template_1adcefd7b7dc8118204ac1ac39b1805acc" kindref="member">templates</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/BuildTemplate.py" line="19" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/BuildTemplate.py" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_original_01_structures_1_1_structures_1_1_build_template_1a265e54a5edacb20c9a9a35b72ea345eb" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple Original Structures::Structures::BuildTemplate.structure_data</definition>
+        <argsstring></argsstring>
+        <name>structure_data</name>
+        <initializer>= build_templates(<ref refid="namespace_original_01_structures_1_1_structures_1_1_build_template_1a0ed33a650e9c1a5021dd537111da7f5b" kindref="member">template_list</ref>, <ref refid="namespace_original_01_structures_1_1_structures_1_1_build_template_1afdfe35279b1b5ee13745790ba93a9126" kindref="member">base_path</ref>, <ref refid="namespace_original_01_structures_1_1_structures_1_1_build_template_1a7629a0fc8e073f1471ce3ea5bd432716" kindref="member">structures_lookup</ref>, include_structure_list=False)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/BuildTemplate.py" line="20" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/BuildTemplate.py" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_original_01_structures_1_1_structures_1_1_build_template_1adba81f2a4e48c71d50a5e8dcb136d6a4" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Original Structures::Structures::BuildTemplate.structures_file_name</definition>
+        <argsstring></argsstring>
+        <name>structures_file_name</name>
+        <initializer>= <ref refid="namespace_original_01_structures_1_1_structures_1_1_build_template_1afdfe35279b1b5ee13745790ba93a9126" kindref="member">base_path</ref>/&apos;Lung Structure data.txt&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/BuildTemplate.py" line="22" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/BuildTemplate.py" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/BuildTemplate.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

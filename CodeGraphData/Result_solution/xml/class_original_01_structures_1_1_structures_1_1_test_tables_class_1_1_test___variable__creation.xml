@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test___variable__creation" kind="class" prot="public">
+    <compoundname>Original Structures::Structures::TestTablesClass::Test_Variable_creation</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">TestCase</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="50">
+        <label>TestCase</label>
+      </node>
+      <node id="49">
+        <label>Original Structures.Structures.TestTablesClass.Test_Variable_creation</label>
+        <link refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test___variable__creation"/>
+        <childnode refid="50" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="52">
+        <label>TestCase</label>
+      </node>
+      <node id="51">
+        <label>Original Structures.Structures.TestTablesClass.Test_Variable_creation</label>
+        <link refid="class_original_01_structures_1_1_structures_1_1_test_tables_class_1_1_test___variable__creation"/>
+        <childnode refid="52" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" line="278" column="1" bodyfile="C:/Users/Greg/OneDrive - Queen's University/Work/Structure Dictionary/Python code/Original Structures/Structures/TestTablesClass.py" bodystart="278" bodyend="-1"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
