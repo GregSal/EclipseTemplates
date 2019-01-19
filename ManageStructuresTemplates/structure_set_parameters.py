@@ -219,7 +219,6 @@ class ParametersBase(object):
                 set_method = getattr(self, 'update_' + item)
                 set_method(kwargs[item])
 
-
     def insert_base_path(self, file_name: str):
         '''Add the base path to a filename or relative string path.
         Check for presence of ':' or './' as indications that file_name is
@@ -281,6 +280,8 @@ class ParametersBase(object):
 
 
 # Principal class definition
+
+# FIXME Modify to contain relevant structure template parameters
 
 
 class DirScanParameters(ParametersBase):

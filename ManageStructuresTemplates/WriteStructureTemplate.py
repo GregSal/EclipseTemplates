@@ -88,7 +88,7 @@ def add_preview(template, template_data):
     site = tb.get_value(template_data, 'TreatmentSite')
     diagnosis = tb.get_value(template_data, 'Diagnosis')
     description = tb.get_value(template_data, 'Description')
-    users = tb.get_value(template_data, 'AssignedUsers')
+    users = tb.get_value(template_data, 'Author')
     status = tb.get_value(template_data, 'ApprovalStatus')
     history = tb.get_value(template_data, 'ApprovalHistory')
     modified = tb.get_value(template_data, 'LastModified')
@@ -160,6 +160,7 @@ def build_templates(template_list, base_path, structures_lookup, include_structu
     return all_structure_data
 
 if __name__ == '__main__':
+    # FIXME Template List now has different headers
     #base_path = Path(r'C:\Users\gsalomon\OneDrive for Business 1\Structure Dictionary')
     base_path = Path(r'C:\Users\gsalomon\OneDrive for Business 1\Structure Dictionary\Templates\New Templates\V13')
     #base_path = Path(r"C:\Users\Greg\OneDrive - Queen's University\Structure Dictionary")

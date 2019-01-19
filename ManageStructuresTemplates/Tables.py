@@ -233,15 +233,15 @@ class Table(object):
         # Read table
         table_data = pd.read_excel(workbook, self.sheet_name, \
                                 header=header_offset, \
-                                parse_cols=selected_columns, \
+                                usecols=selected_columns, \
                                 converters=var_cnv)
 
         #Check table title
         if self.title is not None:
             title = pd.read_excel(workbook, self.sheet_name, \
                                     skiprows=row_offset, \
-                                    parse_cols=selected_columns, \
-                                    skip_footer=len(table_data)+1).columns[0]
+                                    usecols=selected_columns, \
+                                    skipfooter=len(table_data)+1).columns[0]
             if self.title not in title:
                 raise InvalidTable('Title Mismatch: expecting {}, found {}'.format(self.title,title))
         # Check for missing header variables

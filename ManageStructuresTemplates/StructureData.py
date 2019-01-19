@@ -32,14 +32,17 @@ def define_structure_attributes():
     var_type = 'Structure'
     is_string = lambda x: isinstance(x,str)
     id_check = lambda x: is_string(x) and len(x) < 13
-    #TODO more attribute checks should be added to the attribute definitions
+    # TODO Merge with define_structure_table from update_template_list
+    # TODO more attribute checks should be added to the attribute definitions
 
     structure_def = [('StructureID', id_check, None), \
                      ('Name', is_string, ''), \
+                     ('StructureCategory', is_string, ''), \
                      ('VolumeID', None, ''), \
                      ('VolumeType', is_string, ''), \
                      ('VolumeCode', is_string, ''), \
                      ('VolumeCodeTable', is_string, ''), \
+                     ('Label', is_string, None), \
                      ('StructureCode', None, None), \
                      ('CodeScheme', is_string, None), \
                      ('CodeSchemeVersion', None, None), \
@@ -57,8 +60,9 @@ def define_structure_attributes():
     return  {ID: tb.Variable(ID, var_type, validate=val, default=dflt)
                               for (ID, val, dflt) in structure_def}
 
-def define_structure_tables(file_path: Path, structures: list):
-    '''Create a list of Type Table values that define all of the structure tables required to build a complete structures data lookup.
+def define_structure_lookup_tables(file_path: Path, structures: list):
+    '''Create a list of Type Table values that define all of the structure
+    tables required to build a complete structures data lookup.
     '''
     # Define the tables
     tables_def = [
@@ -79,7 +83,8 @@ def define_structure_tables(file_path: Path, structures: list):
 
 def build_structures_lookup(structures_file_path: Path):
     structure_attributes = define_structure_attributes()
-    structures_table_list = define_structure_tables(structures_file_path, structure_attributes)
+    structures_table_list = define_structure_lookup_tables(
+        structures_file_path, structure_attributes)
     structures_lookup = tb.merge_tables(structures_file_path, \
                                         structures_table_list, \
                                         structure_attributes)
