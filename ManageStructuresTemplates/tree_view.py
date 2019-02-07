@@ -3,6 +3,7 @@ Created on Mon Jan 7 2018
 
 @author: Greg Salomons
 """
+from pathlib import Path
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
@@ -13,48 +14,138 @@ from spreadsheet_tools import load_reference_table
 #base_path = set_base_dir()
 #active_templates = import_template_list(base_path)
 
-all_template_vars = ['workbook_name', 'sheet_name', 'title',
-                     'columns', 'output_file_name', 'in_use']
+template_vars = ['TemplateID', 'TemplateCategory', 'TreatmentSite',
+                 'workbook_name', 'sheet_name', 'Modification Date',
+                 'Number_of_Structures', 'Description', 'Diagnosis',
+                 'Author', 'Columns', 'Template file name', 'Status',
+                 'TemplateType', 'ApprovalStatus']
 
-template_vars = ['workbook_name', 'title']
+show_vars = ['workbook_name', 'TemplateID', 'TemplateCategory',
+             'TreatmentSite', 'Modification Date', 'Description', 'Status']
+
+test_vars = ['workbook_name', 'TemplateID', 'TemplateCategory']
+test_show_vars = ['TemplateID', 'TemplateCategory']
 
 template_file_info = dict(file_name='Template List.xlsx',
                           sub_dir=r'Work\Structure Dictionary\Template Spreadsheets',
                           sheet_name='templates')
 template_table_info = dict(starting_cell='A1', header=1)
 
-template_selections = dict(unique_scans=['title'],
-                           select_columns=template_vars,
-                           criteria_selection={'in_use': True})
+template_selections = dict(unique_scans=['TemplateID'],
+                           select_columns=test_vars)
+#                           criteria_selection={
+#                               'workbook_name': 'Basic Templates.xlsx'}
 
 # 'workbook_name': 'Basic Templates.xlsx',
+# criteria_selection={'Status': 'Active'}
+
+active_templates = load_reference_table(template_file_info,
+                                        template_table_info,
+                                        **template_selections)
+workbooks = active_templates.groupby('workbook_name')
+
+
 def print_selection():
         select_list = [str(item) for item in template_selector.selection()]
         select_str = '\n'.join(select_list)
         messagebox.showinfo('Selected Templates', select_str)
 
+
+def print_select(event):
+        selected = str(event.widget.focus())
+        messagebox.showinfo('Selected File', selected)
+
+
+def file_select(event):
+        selected_file = event.widget.focus()
+        file_templates = event.widget.get_children(item=selected_file)
+        select_list = event.widget.selection()
+        a = (template in select_list for template in file_templates)
+        select_str = '\n'.join([str(item) for item in file_templates])
+        heading = '{} Selected:'.format(str(selected_file))
+        #messagebox.showinfo(heading, select_str)
+        if all(a):
+            event.widget.selection_remove(*file_templates)
+            event.widget.item(selected_file, open=True)
+            #messagebox.showinfo(heading, select_str)
+        else:
+            event.widget.selection_add(*file_templates)
+            event.widget.item(selected_file, open=True)
+            #messagebox.showinfo(heading, select_str)
+        #
+
+
+def insert_template_items(template_selector, workbooks, show_vars):
+    '''Add the template items to the workbook.
+    '''
+    #top_level = template_selector.insert('', 0, text='Structure Templates')
+    template_ref = dict()
+    for workbook, sheets in workbooks:
+        workbook_str = workbook.split('.', 1)[0]
+        file_ref = template_selector.insert('', 'end', workbook_str,
+                                            text=workbook_str,
+                                            open=True,
+                                            tags=('File',))
+        template_ref[workbook_str] = file_ref
+        for template_data in sheets.itertuples():
+            name = template_data.TemplateID
+            template_values = [getattr(template_data, item)
+                               for item in test_show_vars]
+            id = template_selector.insert(file_ref, 'end', name, text=name,
+                                          values=template_values,
+                                          tags=('Template',))
+            template_ref[name] = id
+
+icon_path = Path(r'.\icons')
+file_icon = icon_path / 'Box2.png'
+template_icon = icon_path / 'Blueprint2.png'
+
+
 root = tk.Tk()
 root.title("Template Selection")
 style = ttk.Style()
 style.theme_use('vista')
-# tree = ttk.Treeview(root, columns=template_vars)
-template_selector = ttk.Treeview(root)
-template_selector.insert('', 'end', 'templates', text='Structure Templates')
+master = tk.Frame(root)
+file_image = tk.PhotoImage(file=file_icon)
+template_image = tk.PhotoImage(file=template_icon)
 
-active_templates = load_reference_table(template_file_info, template_table_info, **template_selections)
-workbooks = active_templates.groupby('workbook_name')
-for workbook, sheets in workbooks:
-        workbook_str = workbook.split('.', 1)[0]
-        template_selector.insert('templates', 'end', workbook_str,
-                                 text=workbook_str, tags=('File'))
-        for template in sheets.itertuples():
-                template_selector.insert(workbook_str, 'end', template.title,
-                                         text=template.title, tags=('Template'))
-template_selector.tag_configure('File', foreground='blue', background='light grey')
-template_selector.pack()
+template_selector = ttk.Treeview(master)
+template_selector['columns'] = test_show_vars
+#template_selector['displaycolumns'] = test_show_vars
+#template_selector.column('TemplateID', width=100, anchor='center')
+#template_selector.heading('workbook_name', text='File')
+template_selector.heading('#0', text='Structure Templates')
+template_selector.heading('TemplateID', text='ID')
+template_selector.heading('TemplateCategory', text='Category')
+scrollbar_horizontal = ttk.Scrollbar(master, orient="horizontal",
+                                     command=template_selector.xview)
+scrollbar_vertical = ttk.Scrollbar(master, orient="vertical",
+                                   command=template_selector.yview)
+template_selector.configure(
+    xscrollcommand=scrollbar_horizontal.set,
+    yscrollcommand=scrollbar_vertical.set)
+
+# resize = ttk.Sizegrip(template_selector)
+
+
+insert_template_items(template_selector, workbooks, test_vars)
+template_selector.tag_configure('File', foreground='blue',
+                                background='light grey', image=file_image)
+template_selector.tag_configure('Template', image=template_image)
+template_selector.tag_bind('File', '<Double-ButtonRelease-1>', callback=file_select)  # the item clicked can be found via tree.focus()
+#template_selector.tag_bind('Template', '<<TreeviewSelect>>', callback=template_select)  # the item clicked can be found via tree.focus()
+template_selector.grid(row=0, column=0, sticky='nsew')  #  , ipady=50, ipadx=200
+scrollbar_horizontal.grid(row=1, column=0, sticky="we")
+scrollbar_vertical.grid(row=0, column=1, sticky="ns")
+master.grid(row=0, column=0, columnspan=3, sticky='nsew')
 selection_button = ttk.Button(root, text='Show Selected', command=print_selection)
-selection_button.pack()
+selection_button.grid(row=2, column=1, columnspan=1)
+
+
+
 root.mainloop()
+
+
 
 #values = template_selector.selection()
 #showinfo(title, message, options)
