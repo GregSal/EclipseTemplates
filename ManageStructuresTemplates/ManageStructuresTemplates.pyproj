@@ -50,10 +50,23 @@
     <Compile Include="__init__.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GUI Layout settings.txt" />
     <Content Include="GUI Layout.xlsx" />
+    <Content Include="icons\arrow-down.png" />
+    <Content Include="icons\arrow-up.png" />
+    <Content Include="icons\Blueprint.png" />
+    <Content Include="icons\Blueprint2.png" />
+    <Content Include="icons\Box.png" />
+    <Content Include="icons\Box2.png" />
+    <Content Include="icons\Chart_Graph_Ascending.png" />
+    <Content Include="icons\Small-triangle-rep-green.png" />
+    <Content Include="icons\Target.png" />
+    <Content Include="icons\Triangle-Down2.png" />
+    <Content Include="Template Variables.xlsx" />
     <Content Include="Testing\LUNL SABR 48 in 4 Structure tree.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="icons\" />
     <Folder Include="Testing" />
   </ItemGroup>
   <ItemGroup>
