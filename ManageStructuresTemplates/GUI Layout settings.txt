@@ -26,6 +26,7 @@ Button
         padx 1 em
 	pady 8 pt
         width -  10 em
+        10/0.95*15 
 	command - file_selector
 
 	column 1

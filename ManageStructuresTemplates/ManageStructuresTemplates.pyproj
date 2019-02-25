@@ -5,7 +5,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{e332936f-0e17-4f36-944d-fb377ee415a9}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>tree_view.py</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
