@@ -192,7 +192,7 @@ def read_template_data(file: Path, sheet: str, table_info: Dict[str, Any],
     Arguments:
         file {Path} -- The path to the template spreadsheet.
         sheet {str} -- The name of the template worksheet.
-        table_info {Dict[str, Any]} -- THe table header data.
+        table_info {Dict[str, Any]} -- The table header data.
         structures_lookup {Data} The DataFrame containing the lookup table
             for the structures.
     Returns:

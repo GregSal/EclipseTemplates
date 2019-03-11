@@ -3,6 +3,7 @@ Created on Mon Jan 7 2018
 
 @author: Greg Salomons
 """
+from typing import Union, Callable, List, Dict, Tuple, Any
 from pathlib import Path
 import tkinter as tk
 from tkinter import messagebox
@@ -11,38 +12,76 @@ import utilities_path
 from file_utilities import set_base_dir
 from SelectTemplates import import_template_list
 from spreadsheet_tools import load_reference_table
-#base_path = set_base_dir()
-#active_templates = import_template_list(base_path)
 
-template_vars = ['TemplateID', 'TemplateCategory', 'TreatmentSite',
-                 'workbook_name', 'sheet_name', 'Modification Date',
-                 'Number_of_Structures', 'Description', 'Diagnosis',
-                 'Author', 'Columns', 'Template file name', 'Status',
-                 'TemplateType', 'ApprovalStatus']
+data_folder = r'Work\Structure Dictionary\Template Spreadsheets'
+template_list_file_name='Template List.xlsx'
 
-show_vars = ['workbook_name', 'TemplateID', 'TemplateCategory',
-             'TreatmentSite', 'Modification Date', 'Description', 'Status']
+projects_path = set_base_dir(sub_dir=r'Python\Projects')
+icon_folder = r'EclipseRelated\EclipseTemplates\ManageStructuresTemplates\icons'
+icon_path = projects_path / icon_folder
+file_icon = icon_path / 'Box2.png'
+template_icon = icon_path / 'Blueprint2.png'
 
-test_vars = ['workbook_name', 'TemplateID', 'TemplateCategory']
-test_show_vars = ['TemplateID', 'TemplateCategory']
+class TemplateData():
+    '''
+    '''
+    data_fields = ['TemplateID', 'TemplateCategory', 'TreatmentSite',
+                   'workbook_name', 'sheet_name', 'Modification Date',
+                   'Number_of_Structures', 'Description', 'Diagnosis',
+                   'Author', 'Columns', 'Template file name', 'Status',
+                   'TemplateType', 'ApprovalStatus']
 
-template_file_info = dict(file_name='Template List.xlsx',
-                          sub_dir=r'Work\Structure Dictionary\Template Spreadsheets',
-                          sheet_name='templates')
-template_table_info = dict(starting_cell='A1', header=1)
+    default_show_fields = ['workbook_name', 'TemplateID', 'TemplateCategory',
+                           'TreatmentSite', 'Modification Date',
+                           'Description', 'Status']
 
-template_selections = dict(unique_scans=['TemplateID'],
-                           select_columns=test_vars)
-#                           criteria_selection={
-#                               'workbook_name': 'Basic Templates.xlsx'}
+    file_info_args = ('file_name', 'sub_dir', 'sheet_name')
+    table_info_args = ('starting_cell', 'header')
+    selections_args = ('unique_scans', 'select_columns', 'criteria_selection')
 
-# 'workbook_name': 'Basic Templates.xlsx',
-# criteria_selection={'Status': 'Active'}
+    default_references = dict(
+        file_name='Template List.xlsx',
+        sub_dir=r'Work\Structure Dictionary\Template Spreadsheets',
+        sheet_name='templates',
+        starting_cell='A1',
+        header=1,
+        unique_scans=['TemplateID'],
+        select_columns=data_fields,
+        criteria_selection={
+            'workbook_name': 'Basic Templates.xlsx',
+            'Status': 'Active'
+            }
+        )
+    def __init__(self, **kwargs):
+        '''
+        '''
+        self.template_file_info = set_args(file_info_args, kwargs)
+        self.template_table_info = set_args(table_info_args, kwargs)
+        self.template_selections = set_args(selections_args, kwargs)
+        self.template_data = self.get_template_data()
 
-active_templates = load_reference_table(template_file_info,
-                                        template_table_info,
-                                        **template_selections)
-workbooks = active_templates.groupby('workbook_name')
+    def set_args(self, arg_list: tuple[str],
+                 arguments: Dict[str, Any])->Dict[str, Any]:
+        '''
+        '''
+        args_dict = dict()
+        for arg in arg_list:
+            args_dict[arg] = arguments.get(arg, self.default_references[arg])
+        return args_dict
+
+    def get_template_data(self):
+        '''
+        '''
+        template_data = load_reference_table(
+            self.template_file_info,
+            self.template_table_info,
+            **self.template_selections)
+        return template_data
+
+    def get_workbook_data(self):
+        '''
+        '''
+        return self.template_data.groupby('workbook_name')
 
 
 def print_selection():
@@ -110,13 +149,6 @@ file_image = tk.PhotoImage(file=file_icon)
 template_image = tk.PhotoImage(file=template_icon)
 
 template_selector = ttk.Treeview(master)
-template_selector['columns'] = test_show_vars
-#template_selector['displaycolumns'] = test_show_vars
-#template_selector.column('TemplateID', width=100, anchor='center')
-#template_selector.heading('workbook_name', text='File')
-template_selector.heading('#0', text='Structure Templates')
-template_selector.heading('TemplateID', text='ID')
-template_selector.heading('TemplateCategory', text='Category')
 scrollbar_horizontal = ttk.Scrollbar(master, orient="horizontal",
                                      command=template_selector.xview)
 scrollbar_vertical = ttk.Scrollbar(master, orient="vertical",
@@ -128,12 +160,22 @@ template_selector.configure(
 # resize = ttk.Sizegrip(template_selector)
 
 
+template_selector['columns'] = test_show_vars
+#template_selector['displaycolumns'] = test_show_vars
+#template_selector.column('TemplateID', width=100, anchor='center')
+#template_selector.heading('workbook_name', text='File')
+template_selector.heading('#0', text='Structure Templates')
+template_selector.heading('TemplateID', text='ID')
+template_selector.heading('TemplateCategory', text='Category')
+
 insert_template_items(template_selector, workbooks, test_vars)
 template_selector.tag_configure('File', foreground='blue',
                                 background='light grey', image=file_image)
 template_selector.tag_configure('Template', image=template_image)
 template_selector.tag_bind('File', '<Double-ButtonRelease-1>', callback=file_select)  # the item clicked can be found via tree.focus()
 #template_selector.tag_bind('Template', '<<TreeviewSelect>>', callback=template_select)  # the item clicked can be found via tree.focus()
+
+
 template_selector.grid(row=0, column=0, sticky='nsew')  #  , ipady=50, ipadx=200
 scrollbar_horizontal.grid(row=1, column=0, sticky="we")
 scrollbar_vertical.grid(row=0, column=1, sticky="ns")

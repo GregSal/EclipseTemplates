@@ -8,6 +8,7 @@ TEMPLATE_LIST_FILE = 'Template List.xlsx'
 
 from pathlib import Path
 import Tables as tb
+from WriteStructureTemplate import build_templates
 tb.VARIABLE_TYPES.append('Template_List')
 
 
