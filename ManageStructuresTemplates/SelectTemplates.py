@@ -30,10 +30,9 @@ def define_template_list():
     return  {ID: tb.Variable(ID, var_type, validate=val, default=dflt)
                               for (ID, val, dflt) in template_def}
 
-def import_template_list(base_path: Path):
+def import_template_list(template_list_path: Path):
     '''Import the list of active templates.
     '''
-    template_list_path = base_path / TEMPLATE_LIST_FILE
     variables=define_template_list()
     template_list_table = tb.Table(template_list_path, 'templates', variables=variables)
     template_list = template_list_table.read_table()
@@ -43,11 +42,11 @@ def import_template_list(base_path: Path):
     active_templates['columns'] = active_templates['columns'].astype('int64')
     return active_templates
 
-def select_templates(base_path: Path, selections_list=None):
+def select_templates(template_list_path: Path, selections_list=None):
     '''build a list of templates from a list of template names.
-    I selections is None, all active templates are used.
+    If selections is None, all active templates are used.
     '''
-    active_templates = import_template_list(base_path)
+    active_templates = import_template_list(template_list_path)
     if selections_list is None:
         template_list = active_templates.to_dict(orient='record')
     else:
@@ -58,7 +57,8 @@ def select_templates(base_path: Path, selections_list=None):
 
 def main():
     base_path = Path(r'C:\Users\gsalomon\OneDrive for Business 1\Structure Dictionary')
-    template_list = select_templates(base_path, ['Gyne VMAT',r'H&N 70/35'])
+    template_list_path = base_path / TEMPLATE_LIST_FILE
+    template_list = select_templates(template_list_path, ['Gyne VMAT',r'H&N 70/35'])
 
     structures_lookup_file_name = 'Structure Lookup.xlsx'
     structures_file_path = base_path / structures_lookup_file_name

@@ -1,3 +1,4 @@
+from logging_tools import config_logger
 import Tables as tb
 from StructureData import build_structures_lookup
 from StructureData import build_structures_list
@@ -8,8 +9,7 @@ from pathlib import Path
 import pandas as pd
 import xml.etree.ElementTree as ET
 
-#import LoggingConfig as log
-#logger = log.logging_init(__name__)
+LOGGER = config_logger(level='INFO')
 
 tb.VARIABLE_TYPES = ['Structure', 'Template']
 #VERSION = 10.0
@@ -133,7 +133,7 @@ def build_templates(template_list, base_path, structures_lookup, include_structu
     '''
     all_structure_data = pd.DataFrame()
     for tmpl in  template_list:
-        print('Building Template: %s' %tmpl['title'])
+        LOGGER.debug('Building Template: %s' %tmpl['title'])
         template_file_path = base_path / tmpl['workbook_name']
         (template_table, structures_table) = define_template_tables(template_file_path, \
                                                                     sheet_name=tmpl['sheet_name'], \

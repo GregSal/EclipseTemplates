@@ -238,6 +238,52 @@ def add_structure_info(structure_data: Data, structures: Data)->Data:
 
 
 
+def scan_template_worksheet(file, sheet, file_mod_time, structures_lookup):
+    template_info = read_template_header(data_sheet=sheet,
+                                      starting_cell='A3')
+    template_info['workbook_name'] = file.name
+    template_info['sheet_name'] = sheet.name
+    template_info['Modification Date'] = file_mod_time
+    LOGGER.debug('Found template: {} in sheet: {}'.format(
+        template_info['TemplateID'], sheet.name))
+    structures = read_template_data(file, sheet, template_info,
+                                    structures_lookup)
+    num_structures = len(structures)
+    template_info['Number_of_Structures'] = num_structures
+    LOGGER.debug('Found {} structures'.format(num_structures))
+    return structures, template_info
+
+def scan_template_workbook(file, structure_data, structures_lookup, template_data):
+    LOGGER.debug('Scanning template file: {}'.format(file.name))
+    file_mod_time = get_file_mod_time(file)
+    workbook_sheets = get_sheets(file)
+    LOGGER.debug('Found {} template worksheets'.format(
+        len(workbook_sheets)))
+
+    for sheet in workbook_sheets:
+        structures, template_info = scan_template_worksheet(file, sheet, file_mod_time, structures_lookup)
+        template_data = add_template_info(template_data, template_info)
+        structure_data = add_structure_info(structure_data, structures)
+    xw.books.active.close()
+    return structure_data, template_data
+
+def update_template_list(template_directory: Path, structures_file_path: Path,
+                         structures_pickle_file_path: Path,
+                         structure_table_info: dict, template_table_info: dict):
+    structures_lookup = load_structure_references(structures_pickle_file_path)
+    open_book(structures_file_path)
+
+    template_files = find_template_files(template_directory)
+    LOGGER.debug('Found {} template files'.format(len(template_files)))
+
+    template_data = pd.DataFrame()
+    structure_data = pd.DataFrame()
+
+    for file in template_files:
+        structure_data, template_data = scan_template_workbook(file, structure_data, structures_lookup, template_data)
+    append_data_sheet(template_data, **template_table_info)
+    append_data_sheet(structure_data, **structure_table_info)
+
 def main():
     template_directory = set_base_dir(
             r'Work\Structure Dictionary\Template Spreadsheets')
@@ -252,38 +298,7 @@ def main():
 
     # rebuild_structures_lookup(structures_file_path, structures_pickle_file_path)
 
-    structures_lookup = load_structure_references(structures_pickle_file_path)
-    open_book(structures_file_path)
-
-    template_files = find_template_files(template_directory)
-    LOGGER.debug('Found {} template files'.format(len(template_files)))
-
-    template_data = pd.DataFrame()
-    structure_data = pd.DataFrame()
-    for file in template_files:
-        LOGGER.debug('Scanning template file: {}'.format(file.name))
-        file_mod_time = get_file_mod_time(file)
-        workbook_sheets = get_sheets(file)
-        LOGGER.debug('Found {} template worksheets'.format(
-            len(workbook_sheets)))
-        for sheet in workbook_sheets:
-            template_info = read_template_header(data_sheet=sheet,
-                                              starting_cell='A3')
-            template_info['workbook_name'] = file.name
-            template_info['sheet_name'] = sheet.name
-            template_info['Modification Date'] = file_mod_time
-            LOGGER.debug('Found template: {} in sheet: {}'.format(
-                template_info['TemplateID'], sheet.name))
-            structures = read_template_data(file, sheet, template_info,
-                                            structures_lookup)
-            num_structures = len(structures)
-            template_info['Number_of_Structures'] = num_structures
-            LOGGER.debug('Found {} structures'.format(num_structures))
-            template_data = add_template_info(template_data, template_info)
-            structure_data = add_structure_info(structure_data, structures)
-        xw.books.active.close()
-    append_data_sheet(template_data, **template_table_info)
-    append_data_sheet(structure_data, **structure_table_info)
+    update_template_list(structure_table_info, structures_file_path, structures_pickle_file_path, template_directory, template_table_info)
 
 
 if __name__ == '__main__':
