@@ -5,12 +5,11 @@ Created on Sun Jan 13 2019
 Update list of structure templates.
 '''
 from pathlib import Path
-from typing import Union, List, Dict, Tuple, Any
-from collections import OrderedDict
+from typing import Union, List, Dict, Any
+from pickle import dump, load
 import xlwings as xw
 import pandas as pd
 
-import utilities_path
 from logging_tools import config_logger
 from file_utilities import set_base_dir, get_file_mod_time
 from spreadsheet_tools import open_book, load_definitions, append_data_sheet
@@ -20,9 +19,10 @@ import Tables as tb
 from StructureData import load_structure_references, build_structures_list
 from StructureData import define_structure_attributes
 from StructureData import update_structure_references
-
+tb.VARIABLE_TYPES.append('Template_List')
 
 Data = pd.DataFrame
+DataLookup = Union[Data, Path]
 HeaderValue = Union[str, float, int]
 HeaderData = Dict[str, HeaderValue]
 LOGGER = config_logger(level='INFO')
@@ -39,13 +39,13 @@ def set_template_defaults()->HeaderData:
                          'TemplateID': 'Invalid',
                          'workbook_name': Path(r'.\Invalid.file'),
                          'sheet_name': 'Invalid',
-                         'Modification Date': '',
+                         'modification_date': '',
                          'Columns': 3,
                          'Diagnosis': '',
                          'TreatmentSite': '.All',
                          'TemplateCategory': 'Generic',
                          'Status': 'Active',
-                         'Template file name': 'Structure_template.xml',
+                         'template_file_name': 'Structure_template.xml',
                          'Author': ';',
                          'Description': '',
                          'ApprovalStatus': 'Unapproved',
@@ -64,9 +64,9 @@ def set_template_selection(template_info: HeaderData)->HeaderData:
         data to be stored in the template list spreadsheet.
     '''
     template_vars = ('TemplateID', 'TemplateCategory', 'TreatmentSite',
-                     'workbook_name', 'sheet_name', 'Modification Date',
+                     'workbook_name', 'sheet_name', 'modification_date',
                      'Number_of_Structures', 'Description', 'Diagnosis',
-                     'Author', 'Columns', 'Template file name', 'Status',
+                     'Author', 'Columns', 'template_file_name', 'Status',
                      'TemplateType', 'ApprovalStatus')
     all_template_data = pd.DataFrame([template_info])
     template_selection = all_template_data.loc[:,template_vars]
@@ -87,7 +87,7 @@ def set_structures_selection(structures: Data)->Data:
                       'DVHLineStyle', 'DVHLineColor', 'SearchCTLow',
                       'SearchCTHigh', 'TemplateID', 'TemplateType',
                       'Description', 'Diagnosis', 'TreatmentSite',
-                      'TemplateCategory', 'Status', 'Template file name',
+                      'TemplateCategory', 'Status', 'template_file_name',
                       'Author', 'ApprovalStatus')
     structure_selection = structures.loc[:,structure_vars]
     return structure_selection
@@ -237,13 +237,12 @@ def add_structure_info(structure_data: Data, structures: Data)->Data:
     return structure_data
 
 
-
 def scan_template_worksheet(file, sheet, file_mod_time, structures_lookup):
     template_info = read_template_header(data_sheet=sheet,
                                       starting_cell='A3')
     template_info['workbook_name'] = file.name
     template_info['sheet_name'] = sheet.name
-    template_info['Modification Date'] = file_mod_time
+    template_info['modification_date'] = file_mod_time
     LOGGER.debug('Found template: {} in sheet: {}'.format(
         template_info['TemplateID'], sheet.name))
     structures = read_template_data(file, sheet, template_info,
@@ -252,6 +251,7 @@ def scan_template_worksheet(file, sheet, file_mod_time, structures_lookup):
     template_info['Number_of_Structures'] = num_structures
     LOGGER.debug('Found {} structures'.format(num_structures))
     return structures, template_info
+
 
 def scan_template_workbook(file, structure_data, structures_lookup, template_data):
     LOGGER.debug('Scanning template file: {}'.format(file.name))
@@ -267,11 +267,18 @@ def scan_template_workbook(file, structure_data, structures_lookup, template_dat
     xw.books.active.close()
     return structure_data, template_data
 
-def update_template_list(template_directory: Path, structures_file_path: Path,
-                         structures_pickle_file_path: Path,
-                         structure_table_info: dict, template_table_info: dict):
-    structures_lookup = load_structure_references(structures_pickle_file_path)
-    open_book(structures_file_path)
+
+def update_template_list(template_directory: Path, template_table_info: dict,
+                         template_list_pickle_file_path: Path,
+                         structure_table_info: dict,
+                         structures_data: DataLookup,
+                         structures_file_path: Path = None):
+    if isinstance(structures_data, Data):
+        structures_lookup = structures_data
+    else:
+        structures_lookup = load_structure_references(structures_data)
+    if structures_file_path:
+        open_book(structures_file_path)
 
     template_files = find_template_files(template_directory)
     LOGGER.debug('Found {} template files'.format(len(template_files)))
@@ -283,6 +290,63 @@ def update_template_list(template_directory: Path, structures_file_path: Path,
         structure_data, template_data = scan_template_workbook(file, structure_data, structures_lookup, template_data)
     append_data_sheet(template_data, **template_table_info)
     append_data_sheet(structure_data, **structure_table_info)
+    file = open(str(template_list_pickle_file_path), 'wb')
+    dump(template_data, file)
+    file.close()
+
+
+def define_template_list():
+    '''Create a dictionary with Type Variable values that define the template list columns.
+    '''
+    var_type = 'Template_List'
+    def is_int(x): return isinstance(x,int)
+    def is_string(x): return isinstance(x,str)
+    # TODO more attribute checks should be added to the attribute definitions
+    # TODO make attribute checks more tolerant ie. if type conversion works
+
+    template_def = [('workbook_name', is_string, 'Structure Templates.xlsx'), \
+                     ('sheet_name', is_string, None), \
+                     ('title', is_string, None), \
+                     ('columns', is_int, 3), \
+                     ('output_file_name', is_string, 'template.xml'), \
+                     ('in_use', None, True)]
+    return  {ID: tb.Variable(ID, var_type, validate=val, default=dflt)
+                              for (ID, val, dflt) in template_def}
+
+
+def load_template_references(template_list_pickle_file_path)->pd.DataFrame:
+    file = open(str(template_list_pickle_file_path), 'rb')
+    template_list = load(file)
+    return template_list
+
+
+def import_template_list(template_list_pickle_file_path: Path):
+    '''Import the list of active templates.
+    '''
+    template_list = load_template_references(template_list_pickle_file_path)
+    active_templates = template_list[template_list.Status == 'Active']
+    active_templates['title'] = active_templates['TemplateID']
+    active_templates.set_index('TemplateID', inplace=True)
+    active_templates['Columns'] = active_templates['Columns'].astype('int64')
+    return active_templates
+
+
+def select_templates(template_list_path: Path, selections_list=None):
+    '''build a list of templates from a list of template names.
+    If selections is None, all active templates are used.
+    '''
+    column_selection = ['title', 'Columns', 'template_file_name',
+                        'workbook_name', 'sheet_name']
+    active_templates = import_template_list(template_list_path)
+    if selections_list:
+        selections = selections_list
+    else:
+        selections = ':'
+    # FIXME Check for existence of templates in selections list
+    selected_template_data = active_templates.loc[selections,column_selection]
+    template_list = selected_template_data.to_dict(orient='record')
+    return template_list
+
 
 def main():
     template_directory = set_base_dir(

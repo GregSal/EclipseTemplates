@@ -94,7 +94,7 @@ def add_preview(template, template_data):
     modified = tb.get_value(template_data, 'LastModified')
 
     preview = ET.SubElement(template, 'Preview ', \
-        attrib={'ID':template_data['ID'], \
+        attrib={'ID':template_data['TemplateID'], \
                 'Type':type, \
                 'TreatmentSite':site, \
                 'Diagnosis':diagnosis, \
@@ -126,51 +126,21 @@ def make_template(template_data, structures, template_file: Path):
     template_tree = ET.ElementTree(template)
     template_tree.write(str(template_file), encoding='UTF-8', xml_declaration=True, short_empty_elements=False)
 
-def build_templates(template_list, base_path, structures_lookup, include_structure_list=False):
+def build_templates(template_list, template_directory, output_path, structures_lookup):
     '''Build a collection of structure template files from the list of templates
     in template_list that describe template data in the template file. Structure
     data used for the templates comes from the structures_lookup data-frame.
     '''
-    all_structure_data = pd.DataFrame()
     for tmpl in  template_list:
         LOGGER.debug('Building Template: %s' %tmpl['title'])
-        template_file_path = base_path / tmpl['workbook_name']
-        (template_table, structures_table) = define_template_tables(template_file_path, \
-                                                                    sheet_name=tmpl['sheet_name'], \
-                                                                    tmpl_title= tmpl['title'], \
-                                                                    struc_columns=tmpl['columns'])
+        template_save_file = output_path / tmpl['template_file_name']
+        template_file_path = template_directory / tmpl['workbook_name']
+        (template_table, structures_table) = define_template_tables(
+            template_file_path, sheet_name=tmpl['sheet_name'],
+            tmpl_title= tmpl['title'], struc_columns=tmpl['Columns'])
         #Load the template and structure data from the excel worksheet
         template_data = build_template_data(template_table)
         structures = build_structures_list(structures_table, structures_lookup)
-        #Create and return a summary of the template structures
-        structure_data = structures
-        structure_data['Template'] = template_data['ID']
-        structure_data['TreatmentSite'] = template_data['TreatmentSite']
-        structure_data['TemplateType'] = template_data['Type']
-        structure_data['TemplateDescription'] = template_data['Description']
-        if include_structure_list:
-            #Add list of structures to the template description
-            struct_summary = list_of_structures(structures)
-            description = template_data['Description'] + struct_summary
-            template_data['Description'] = description
         # convert the template and structure data to an XML file
-        template_save_file = base_path / tmpl['output_file_name']
         template_tree = make_template(template_data, structures, template_save_file)
-        all_structure_data = all_structure_data.append(structure_data, ignore_index=True)
-    return all_structure_data
 
-if __name__ == '__main__':
-    # FIXME Template List now has different headers
-    #base_path = Path(r'C:\Users\gsalomon\OneDrive for Business 1\Structure Dictionary')
-    base_path = Path(r'C:\Users\gsalomon\OneDrive for Business 1\Structure Dictionary\Templates\New Templates\V13')
-    #base_path = Path(r"C:\Users\Greg\OneDrive - Queen's University\Structure Dictionary")
-    base_path = Path(r"C:\Users\Greg\OneDrive - Queen's University\Structure Dictionary\Templates\New Templates\V13")
-    structures_lookup_file_name = 'Structure Lookup.xlsx'
-    structures_file_path = base_path / structures_lookup_file_name
-    structures_lookup = build_structures_lookup(structures_file_path)
-    templates_list = [ \
-        {'workbook_name': 'Specialty Templates.xlsx', 'sheet_name': 'Artifact', 'title': 'Artifact', 'file_name': 'Artifact.xml', 'columns': 5}, \
-        {'workbook_name': 'Basic Templates.xlsx', 'sheet_name': 'CT', 'title': 'CT', 'file_name': 'CT Template.xml', 'columns': 3}]
-    structure_data = build_templates(templates_list, base_path, structures_lookup, include_structure_list=True)
-    structures_file_name = base_path / 'Structure data.txt'
-    structure_data.to_csv(str(structures_file_name), sep=';', index=False)

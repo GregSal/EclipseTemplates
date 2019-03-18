@@ -26,13 +26,13 @@ class TemplateData():
     '''
     '''
     data_fields = ['TemplateID', 'TemplateCategory', 'TreatmentSite',
-                   'workbook_name', 'sheet_name', 'Modification Date',
+                   'workbook_name', 'sheet_name', 'modification_date',
                    'Number_of_Structures', 'Description', 'Diagnosis',
-                   'Author', 'Columns', 'Template file name', 'Status',
+                   'Author', 'Columns', 'template_file_name', 'Status',
                    'TemplateType', 'ApprovalStatus']
 
     default_show_fields = ['workbook_name', 'TemplateID', 'TemplateCategory',
-                           'TreatmentSite', 'Modification Date',
+                           'TreatmentSite', 'modification_date',
                            'Description', 'Status']
 
     file_info_args = ('file_name', 'sub_dir', 'sheet_name')
@@ -55,12 +55,12 @@ class TemplateData():
     def __init__(self, **kwargs):
         '''
         '''
-        self.template_file_info = set_args(file_info_args, kwargs)
-        self.template_table_info = set_args(table_info_args, kwargs)
-        self.template_selections = set_args(selections_args, kwargs)
+        self.template_file_info = self.set_args(self.file_info_args, kwargs)
+        self.template_table_info = self.set_args(self.table_info_args, kwargs)
+        self.template_selections = self.set_args(self.selections_args, kwargs)
         self.template_data = self.get_template_data()
 
-    def set_args(self, arg_list: tuple[str],
+    def set_args(self, arg_list: Tuple[str],
                  arguments: Dict[str, Any])->Dict[str, Any]:
         '''
         '''
@@ -159,6 +159,11 @@ template_selector.configure(
 
 # resize = ttk.Sizegrip(template_selector)
 
+test_vars = ['workbook_name', 'TemplateID', 'TemplateCategory']
+test_show_vars = ['TemplateID', 'TemplateCategory']
+test_data = TemplateData()
+active_templates = test_data.get_template_data()
+workbooks = test_data.get_workbook_data()
 
 template_selector['columns'] = test_show_vars
 #template_selector['displaycolumns'] = test_show_vars

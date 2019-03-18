@@ -6,13 +6,17 @@ Structure Attributes are defined, Structure Tables are defined, The tables are r
         read_structure_tables
 
 '''
-import Tables as tb
 
+from typing import Union
 from pathlib import Path
 from pickle import dump, load
 import re
 import pandas as pd
 import xml.etree.ElementTree as ET
+
+import Tables as tb
+
+PathInput = Union[Path, str]
 
 #import LoggingConfig as log
 #logger = log.logging_init(__name__)
@@ -195,9 +199,21 @@ def add_structure(template, structure_data, version):
 
 def update_structure_references(structures_file_path: Path,
                                 ref_file_name='StructureData.pkl')->Path:
+    '''Recreate the Structures lookup pickle file.
+    Arguments:
+        structures_file_path {Path} -- The path to the Structures definition
+            spreadsheet.
+        structures_pickle_file_name {PathInput} -- The location of the file to
+        write the Structures pickle file.
+    Returns:
+        The path to the new structures pickle file
+    '''
     structures_lookup = build_structures_lookup(structures_file_path)
-    base_path = structures_file_path.parent
-    structures_pickle_file_path = base_path / ref_file_name
+    if isinstance(ref_file_name, Path):
+        structures_pickle_file_path = ref_file_name.resolve()
+    else:
+        base_path = structures_file_path.parent
+        structures_pickle_file_path = base_path / ref_file_name
     file = open(str(structures_pickle_file_path), 'wb')
     dump(structures_lookup, file)
     file.close()

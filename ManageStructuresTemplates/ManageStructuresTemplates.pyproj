@@ -19,16 +19,13 @@
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BuildTemplate.py" />
     <Compile Include="dir_gui_trial.py" />
-    <Compile Include="excel_interface.py" />
     <Compile Include="file_type_definitions.py" />
     <Compile Include="GUI_Definitions.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GUI_Templates.py" />
     <Compile Include="ReportGUI.py" />
-    <Compile Include="SelectTemplates.py" />
     <Compile Include="StructureData.py" />
     <Compile Include="structure_set_gui.py" />
     <Compile Include="structure_set_parameters.py" />
@@ -44,7 +41,7 @@
     </Compile>
     <Compile Include="Testing\TestTablesClass.py" />
     <Compile Include="tree_view.py" />
-    <Compile Include="update_template_list.py">
+    <Compile Include="manage_template_lists.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="utilities_path.py" />
