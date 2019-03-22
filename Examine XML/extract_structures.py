@@ -82,6 +82,8 @@ def dir_xml_iter(directory_to_scan: Path):
             # recursively scan sub-directories
             for sub_file_item in dir_xml_iter(file_item):
                 yield sub_file_item
+    pass
+
 
 def get_template_info(template_root: ET.Element, search_string='Structures'):
     '''Extract the structure data from a template'''
@@ -110,6 +112,8 @@ def display_element(element_item,indent):
         print('{}\tSub Elements:'.format(indent))
         for sub_element in element_item: 
             display_element(sub_element,indent+'\t\t')
+    pass
+
 
 def scan_files(scan_path, search_string='Structures'):
     template_list = list()
@@ -221,34 +225,42 @@ def make_structures_table(output_file, template_list, structure_key_set, preview
     output_file.write_text(file_str)
     
 def main():
-    template_path = Path('\\\\dkphysicspv1\\e$\Gregs_Work\\Eclipse\\Version 13 upgrade\\Structure Dictionary\\Templates')
-    clinical_protocols_path = template_path / 'Current Clinical Templates' / 'Clinical Protocols'
-    clinical_templates_path = template_path / 'Current Clinical Templates'
-    new_templates = template_path / 'V 13 templates'
-    new_structure_templates =  template_path / 'V 13 templates\\Structure Templates'
-    objective_templates_path = template_path / 'Current Clinical Templates' / 'Objective Templates'
-    Barrie_protocols = template_path / 'From Barrie'
+    template_path = Path(r"C:\Users\gsalomon\OneDrive - Queen's University\Work\Structure Dictionary")
+    clinical_protocols_path = template_path / 'Template Archive' / 'protocol Templates'
+    structure_templates_path =  template_path / 'Template Archive' / 'Structure Templates'
+    objective_templates_path = template_path / 'Template Archive' / 'Objective Templates'
+    completed_templates_path =  template_path / 'Template XML Files'
+    output_file = template_path / 'all_objective_data.txt'
+
+    #clinical_templates_path = template_path / 'Current Clinical Templates'
+    #new_templates = template_path / 'V 13 templates'
+    #Barrie_protocols = template_path / 'From Barrie'
     #lung_protocol_path = clinical_protocols_path / 'LUNL SABR 48 in 4.xml'
     #test_template = new_templates / 'Test Protocol ALL.xml'
     #test_prescriptions = new_templates / 'Prescription types.xml'
     #test_evaluation = new_templates / 'Evaluation Items.xml'
-
     #output_table = template_path / 'all_structure_data.txt'
-    #(template_list, structure_key_set, preview_key_set) = scan_files(clinical_templates_path, search_string='Structures')
-    #structure_keys = ['Structure_ID', 'Structure_Name', 'VolumeType', 'VolumeCode', 'VolumeCodeTable', 'ColorAndStyle']
+    #
+    #
     #make_structures_table(output_table, template_list, structure_key_set, preview_key_set, primary_structure_keys=structure_keys, search_string='Structures')
+    #objectives_table = Barrie_protocols / 'Barrie_protocol_data.txt'
 
-    #objectives_table = template_path / 'all_objective_data.txt'
-    objectives_table = Barrie_protocols / 'Barrie_protocol_data.txt'
-    objective_Structure_keys = ['ObjectivesOneStructure_ID', 'VolumeType', 'Distance', 'Color', \
-                                'VolumeCode', 'VolumeCodeTable']
+    structure_keys = ['Structure_ID', 'Structure_Name', 'VolumeType', 'VolumeCode', 'VolumeCodeTable', 'ColorAndStyle']
+    objective_Structure_keys = ['ObjectivesOneStructure_ID', 'VolumeType',
+                                'Distance', 'Color', 'VolumeCode', 'VolumeCodeTable']
                                 #'ObjectivesOneStructure_SurfaceOnly', 'Distance_nil', 'SamplePoints_nil']
     individual_objective_keys = ['Group', 'Type', 'Operator', 'Dose', 'Volume', 'Priority']
-    (template_list, objective_key_set, preview_key_set) = scan_files(Barrie_protocols, search_string='ObjectivesOneStructure')
-    make_structures_table(objectives_table, template_list, \
-                          objective_key_set, preview_key_set, search_string='ObjectivesOneStructure', \
-                          primary_structure_keys=objective_Structure_keys, \
-                          objective_keys=individual_objective_keys)
+
+    (template_list, structure_key_set, preview_key_set) = scan_files(completed_templates_path, search_string='Structures')
+    make_structures_table(output_file, template_list, structure_key_set,
+                          preview_key_set, search_string='Structures',
+                          primary_structure_keys=structure_keys)
+
+    # (template_list, objective_key_set, preview_key_set) = scan_files(objective_templates_path, search_string='ObjectivesOneStructure')
+    #make_structures_table(output_file, template_list, objective_key_set,
+    #                      preview_key_set, search_string='ObjectivesOneStructure',
+    #                      primary_structure_keys=objective_Structure_keys,
+    #                      objective_keys=individual_objective_keys)
     
     #tree = ET.parse(str(test_template))
     #root = tree.getroot()

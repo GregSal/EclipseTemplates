@@ -10,5 +10,5 @@ def dir_xml_iter(directory_to_scan: Path):
                 yield file_item
         elif file_item.is_dir():
             # recursively scan sub-directories
-            for sub_file_item in dir_mod_iter(file_item):
+            for sub_file_item in dir_xml_iter(file_item):
                 yield sub_file_item

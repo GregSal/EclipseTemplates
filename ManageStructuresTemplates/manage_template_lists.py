@@ -11,7 +11,7 @@ import xlwings as xw
 import pandas as pd
 
 from logging_tools import config_logger
-from file_utilities import set_base_dir, get_file_mod_time
+from file_utilities import set_base_dir, get_file_path, get_file_mod_time
 from spreadsheet_tools import open_book, load_definitions, append_data_sheet
 from data_utilities import drop_empty_items
 
@@ -23,6 +23,7 @@ tb.VARIABLE_TYPES.append('Template_List')
 
 Data = pd.DataFrame
 DataLookup = Union[Data, Path]
+PathInput = Union[Path, str]
 HeaderValue = Union[str, float, int]
 HeaderData = Dict[str, HeaderValue]
 LOGGER = config_logger(level='INFO')
@@ -45,7 +46,7 @@ def set_template_defaults()->HeaderData:
                          'TreatmentSite': '.All',
                          'TemplateCategory': 'Generic',
                          'Status': 'Active',
-                         'template_file_name': 'Structure_template.xml',
+                         'TemplateFileName': 'Structure_template.xml',
                          'Author': ';',
                          'Description': '',
                          'ApprovalStatus': 'Unapproved',
@@ -66,7 +67,7 @@ def set_template_selection(template_info: HeaderData)->HeaderData:
     template_vars = ('TemplateID', 'TemplateCategory', 'TreatmentSite',
                      'workbook_name', 'sheet_name', 'modification_date',
                      'Number_of_Structures', 'Description', 'Diagnosis',
-                     'Author', 'Columns', 'template_file_name', 'Status',
+                     'Author', 'Columns', 'TemplateFileName', 'Status',
                      'TemplateType', 'ApprovalStatus')
     all_template_data = pd.DataFrame([template_info])
     template_selection = all_template_data.loc[:,template_vars]
@@ -307,15 +308,18 @@ def define_template_list():
     template_def = [('workbook_name', is_string, 'Structure Templates.xlsx'), \
                      ('sheet_name', is_string, None), \
                      ('title', is_string, None), \
-                     ('columns', is_int, 3), \
-                     ('output_file_name', is_string, 'template.xml'), \
-                     ('in_use', None, True)]
+                     ('Columns', is_int, 3), \
+                     ('TemplateFileName', is_string, 'template.xml'), \
+                     ('Status', None, True)]
     return  {ID: tb.Variable(ID, var_type, validate=val, default=dflt)
                               for (ID, val, dflt) in template_def}
 
 
-def load_template_references(template_list_pickle_file_path)->pd.DataFrame:
-    file = open(str(template_list_pickle_file_path), 'rb')
+def load_template_references(pickle_file_name: PathInput,
+                             sub_dir: str = None,
+                             base_path: Path = None)->pd.DataFrame:
+    template_pkl_path = get_file_path(pickle_file_name, sub_dir, base_path)
+    file = open(str(template_pkl_path), 'rb')
     template_list = load(file)
     return template_list
 
@@ -335,7 +339,7 @@ def select_templates(template_list_path: Path, selections_list=None):
     '''build a list of templates from a list of template names.
     If selections is None, all active templates are used.
     '''
-    column_selection = ['title', 'Columns', 'template_file_name',
+    column_selection = ['title', 'Columns', 'TemplateFileName',
                         'workbook_name', 'sheet_name']
     active_templates = import_template_list(template_list_path)
     if selections_list:

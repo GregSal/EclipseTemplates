@@ -133,7 +133,6 @@ def build_templates(template_list, template_directory, output_path, structures_l
     '''
     for tmpl in  template_list:
         LOGGER.debug('Building Template: %s' %tmpl['title'])
-        template_save_file = output_path / tmpl['template_file_name']
         template_file_path = template_directory / tmpl['workbook_name']
         (template_table, structures_table) = define_template_tables(
             template_file_path, sheet_name=tmpl['sheet_name'],
@@ -142,5 +141,6 @@ def build_templates(template_list, template_directory, output_path, structures_l
         template_data = build_template_data(template_table)
         structures = build_structures_list(structures_table, structures_lookup)
         # convert the template and structure data to an XML file
+        template_save_file = output_path / template_data['TemplateFileName']
         template_tree = make_template(template_data, structures, template_save_file)
 
