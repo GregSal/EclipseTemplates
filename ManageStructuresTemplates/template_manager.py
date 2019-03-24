@@ -65,10 +65,7 @@ if __name__ == '__main__':
                                 new_file=True, new_sheet=True, replace=True)
     structure_table_info = template_table_info.copy()
     structure_table_info['sheet_name'] = 'structures'
-    selected_templates = ['4D GTV', 'CTV', 'H&N 60/30', 'Gyne VMAT',
-                          'HN002_H+N', 'PMH PET BOOST', 'CE8-Brain',
-                          'HDR Head Surface Mould', 'Booleans',
-                          'Extremity Anatomy']
+    selected_templates = ['Breast', 'Prostate', 'Prostate 2Ph VMAT']
 
     # Action
     #rebuild_structures()
