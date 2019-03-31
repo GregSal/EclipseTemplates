@@ -230,9 +230,8 @@ def main():
     structure_templates_path =  template_path / 'Template Archive' / 'Structure Templates'
     objective_templates_path = template_path / 'Template Archive' / 'Objective Templates'
     completed_templates_path =  template_path / 'Template XML Files'
-    output_file = template_path / 'all_objective_data.txt'
+    output_file = template_path / 'completed_templates.txt'
 
-    #clinical_templates_path = template_path / 'Current Clinical Templates'
     #new_templates = template_path / 'V 13 templates'
     #Barrie_protocols = template_path / 'From Barrie'
     #lung_protocol_path = clinical_protocols_path / 'LUNL SABR 48 in 4.xml'

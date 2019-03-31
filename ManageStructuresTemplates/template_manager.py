@@ -46,7 +46,7 @@ def build_xml():
 ###################
 # Stepwise updates
 ##################
-
+#%%
 
 if __name__ == '__main__':
     #
@@ -65,15 +65,16 @@ if __name__ == '__main__':
                                 new_file=True, new_sheet=True, replace=True)
     structure_table_info = template_table_info.copy()
     structure_table_info['sheet_name'] = 'structures'
-    selected_templates = ['Breast', 'Prostate', 'Prostate 2Ph VMAT']
+    selected_templates = ['Bladder Two Phase', 'Breast', 'FSRT', 'GU001 BLADDER',
+                          'Gyne VMAT', 'HDR BREAST', 'HN002_H+N',
+                          'LIVR_HE1 Protocol', 'LUNG - LUSTRE', 'PET',
+                          'PMH PET BOOST', 'Prostate 2Ph VMAT', 'VMAT ANUS']
 
     # Action
     #rebuild_structures()
 
-    #structures_lookup = load_structure_references(structures_pickle_file_path)
-    #open_book(structures_file_path)
-    #update_template_data()
+#    structures_lookup = load_structure_references(structures_pickle_file_path)
+#    open_book(structures_file_path)
+#    update_template_data()
 
     build_xml()
-
-    ''

@@ -51,6 +51,7 @@
   <ItemGroup>
     <Content Include="GUI Layout settings.txt" />
     <Content Include="GUI Layout.xlsx" />
+    <Content Include="GUI_Builder.xsd" />
     <Content Include="icons\arrow-down.png" />
     <Content Include="icons\arrow-up.png" />
     <Content Include="icons\Blueprint.png" />
@@ -61,6 +62,7 @@
     <Content Include="icons\Small-triangle-rep-green.png" />
     <Content Include="icons\Target.png" />
     <Content Include="icons\Triangle-Down2.png" />
+    <Content Include="StructuresGUI.xml" />
     <Content Include="Template Variables.xlsx" />
     <Content Include="Testing\LUNL SABR 48 in 4 Structure tree.txt" />
   </ItemGroup>
