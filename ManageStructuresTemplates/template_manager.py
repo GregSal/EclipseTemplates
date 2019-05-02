@@ -13,6 +13,7 @@ from StructureData import update_structure_references
 from StructureData import load_structure_references
 from manage_template_lists import update_template_list
 from manage_template_lists import select_templates
+from manage_template_lists import load_template_references
 from WriteStructureTemplate import build_templates
 
 LOGGER = config_logger(level='DEBUG')
@@ -27,15 +28,35 @@ def rebuild_structures():
                                 structures_pickle_file_path)
 
 
-def update_template_data():
+def update_template_data(template_directory: Path,
+                         template_list_file: Path,
+                         template_list_pickle_file_path: Path,
+                         structures_file_path: Path,
+                         structures_pickle_file_path: Path):
     '''Update the templates list spreadsheet and the corresponding pickle file.
     '''
+    template_table_info = dict(file_name=template_list_file,
+                               sheet_name='templates',
+                               new_file=True, new_sheet=True, replace=True)
+    structure_table_info = template_table_info.copy()
+    structure_table_info['sheet_name'] = 'structures'
+    structures_lookup = load_structure_references(structures_pickle_file_path)
     update_template_list(template_directory, template_table_info,
                          template_list_pickle_file_path,
                          structure_table_info, structures_lookup)
 
+
+def load_template_data(pickle_file_name: PathInput,
+                       sub_dir: str = None,
+                       base_path: Path = None)->pd.DataFrame:
+    '''Load the templates list from the pickle file.
+    '''
+    return load_template_references(pickle_file_name, sub_dir, base_path)
+
+
 ######################
-def build_xml():
+def build_xml(selected_templates, template_directory, xml_directory,
+              structures_pickle_file_path, template_list_pickle_file_path):
     structures_lookup = load_structure_references(structures_pickle_file_path)
     template_list = select_templates(template_list_pickle_file_path,
                                      selected_templates)
@@ -65,16 +86,13 @@ if __name__ == '__main__':
                                 new_file=True, new_sheet=True, replace=True)
     structure_table_info = template_table_info.copy()
     structure_table_info['sheet_name'] = 'structures'
-    selected_templates = ['Bladder Two Phase', 'Breast', 'FSRT', 'GU001 BLADDER',
-                          'Gyne VMAT', 'HDR BREAST', 'HN002_H+N',
-                          'LIVR_HE1 Protocol', 'LUNG - LUSTRE', 'PET',
-                          'PMH PET BOOST', 'Prostate 2Ph VMAT', 'VMAT ANUS']
+    selected_templates = ['Lung SBRT', 'FSRT', 'Breast']
 
     # Action
     #rebuild_structures()
 
-#    structures_lookup = load_structure_references(structures_pickle_file_path)
-#    open_book(structures_file_path)
-#    update_template_data()
+    #structures_lookup = load_structure_references(structures_pickle_file_path)
+    #open_book(structures_file_path)
+    #update_template_data()
 
     build_xml()

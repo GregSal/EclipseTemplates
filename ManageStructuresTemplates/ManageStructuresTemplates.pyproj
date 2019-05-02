@@ -6,7 +6,8 @@
     <ProjectGuid>{e332936f-0e17-4f36-944d-fb377ee415a9}</ProjectGuid>
     <ProjectHome />
     <StartupFile>template_manager.py</StartupFile>
-    <SearchPath>..\..\..\Utilities</SearchPath>
+    <SearchPath>
+    </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
@@ -19,39 +20,26 @@
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="dir_gui_trial.py" />
-    <Compile Include="file_type_definitions.py" />
-    <Compile Include="GUI_Definitions.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="GUI_Templates.py" />
-    <Compile Include="ReportGUI.py" />
+    <Compile Include="BuildTemplate.py" />
+    <Compile Include="SelectTemplates.py" />
     <Compile Include="StructureData.py" />
-    <Compile Include="structure_set_gui.py" />
-    <Compile Include="structure_set_parameters.py" />
     <Compile Include="Tables.py" />
+    <Compile Include="template_dict.py" />
     <Compile Include="template_manager.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="template_select_gui.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="template_select_parameters.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Testing\TestTablesClass.py" />
-    <Compile Include="tree_view.py" />
     <Compile Include="manage_template_lists.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="utilities_path.py" />
     <Compile Include="WriteStructureTemplate.py" />
     <Compile Include="__init__.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="GUI Layout settings.txt" />
     <Content Include="GUI Layout.xlsx" />
-    <Content Include="GUI_Builder.xsd" />
     <Content Include="icons\arrow-down.png" />
     <Content Include="icons\arrow-up.png" />
     <Content Include="icons\Blueprint.png" />
@@ -62,9 +50,9 @@
     <Content Include="icons\Small-triangle-rep-green.png" />
     <Content Include="icons\Target.png" />
     <Content Include="icons\Triangle-Down2.png" />
-    <Content Include="StructuresGUI.xml" />
     <Content Include="Template Variables.xlsx" />
     <Content Include="Testing\LUNL SABR 48 in 4 Structure tree.txt" />
+    <Content Include="Tree view config.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="icons\" />
