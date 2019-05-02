@@ -272,3 +272,7 @@ tmp
 .vscode/*
 *.mypy_cache/*
 Old Python code
+Examine XML/DataTransformation.csproj
+*.pyc
+Old Python code
+Old Python code
