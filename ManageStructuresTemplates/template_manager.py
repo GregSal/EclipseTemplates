@@ -6,7 +6,9 @@ Basic function calls to update reference data and generate XML templates.
 '''
 
 from logging_tools import config_logger
-from file_utilities import set_base_dir
+from pathlib import Path
+import pandas as pd
+from file_utilities import set_base_dir, PathInput
 from data_utilities import select_data
 from spreadsheet_tools import open_book
 from StructureData import update_structure_references
