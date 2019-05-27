@@ -4,8 +4,7 @@
 from pathlib import Path
 import re
 import pandas as pd
-#import LoggingConfig as log
-#logger = log.logging_init(__name__)
+
 
 class TableException(Exception): pass
 class InvalidTable(TableException): pass

@@ -10,7 +10,6 @@ from pickle import dump, load
 import xlwings as xw
 import pandas as pd
 
-from logging_tools import config_logger
 from file_utilities import set_base_dir, get_file_path, get_file_mod_time
 from spreadsheet_tools import open_book, load_definitions, append_data_sheet
 from data_utilities import drop_empty_items
@@ -26,7 +25,6 @@ DataLookup = Union[Data, Path]
 PathInput = Union[Path, str]
 HeaderValue = Union[str, float, int]
 HeaderData = Dict[str, HeaderValue]
-LOGGER = config_logger(level='INFO')
 
 
 def set_template_defaults()->HeaderData:
@@ -244,23 +242,17 @@ def scan_template_worksheet(file, sheet, file_mod_time, structures_lookup):
     template_info['workbook_name'] = file.name
     template_info['sheet_name'] = sheet.name
     template_info['modification_date'] = file_mod_time
-    LOGGER.debug('Found template: {} in sheet: {}'.format(
         template_info['TemplateID'], sheet.name))
     structures = read_template_data(file, sheet, template_info,
                                     structures_lookup)
     num_structures = len(structures)
     template_info['Number_of_Structures'] = num_structures
-    LOGGER.debug('Found {} structures'.format(num_structures))
     return structures, template_info
 
 
 def scan_template_workbook(file, structure_data, structures_lookup, template_data):
-    LOGGER.debug('Scanning template file: {}'.format(file.name))
     file_mod_time = get_file_mod_time(file)
     workbook_sheets = get_sheets(file)
-    LOGGER.debug('Found {} template worksheets'.format(
-        len(workbook_sheets)))
-
     for sheet in workbook_sheets:
         structures, template_info = scan_template_worksheet(file, sheet, file_mod_time, structures_lookup)
         template_data = add_template_info(template_data, template_info)
@@ -282,8 +274,6 @@ def update_template_list(template_directory: Path, template_table_info: dict,
         open_book(structures_file_path)
 
     template_files = find_template_files(template_directory)
-    LOGGER.debug('Found {} template files'.format(len(template_files)))
-
     template_data = pd.DataFrame()
     structure_data = pd.DataFrame()
 
@@ -366,9 +356,7 @@ def main():
 
     # rebuild_structures_lookup(structures_file_path, structures_pickle_file_path)
 
-    update_template_list(structure_table_info, structures_file_path,
-                         structures_pickle_file_path, template_directory,
-                         template_table_info)
+    update_template_list(structure_table_info, structures_file_path, structures_pickle_file_path, template_directory, template_table_info)
 
 
 if __name__ == '__main__':

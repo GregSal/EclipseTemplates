@@ -1,7 +1,7 @@
 ''' Functions to load a structure lookup table from a set of tables in an excel file.
 Structure Attributes are defined, Structure Tables are defined, The tables are read in, checked and defaults filled in.
     Functions:
-		define_structure_attributes
+        define_structure_attributes
         define_structure_tables
         read_structure_tables
 

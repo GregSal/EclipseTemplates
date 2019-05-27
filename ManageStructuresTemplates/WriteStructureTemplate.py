@@ -1,4 +1,3 @@
-from logging_tools import config_logger
 import Tables as tb
 from StructureData import build_structures_lookup
 from StructureData import build_structures_list
@@ -9,7 +8,6 @@ from pathlib import Path
 import pandas as pd
 import xml.etree.ElementTree as ET
 
-LOGGER = config_logger(level='INFO')
 
 tb.VARIABLE_TYPES = ['Structure', 'Template']
 #VERSION = 10.0
@@ -36,6 +34,7 @@ def define_template_attributes():
     return  {ID: tb.Variable(ID, var_type, validate=val, default=dflt)
                               for (ID, val, dflt) in template_def}
 
+
 def define_template_tables(file_path: Path, sheet_name: str, \
             tmpl_title: str, tmpl_offset='A1', tmpl_columns=2, \
             struc_title='Template Structures', struc_offset='D1', struc_columns=5):
@@ -53,6 +52,7 @@ def define_template_tables(file_path: Path, sheet_name: str, \
 
     return  (template_table, structures_table)
 
+
 def build_template_data(template_table: tb.Table):
     '''Create a dictionary of template data from template_table and the default template_attributes.
     '''
@@ -65,6 +65,7 @@ def build_template_data(template_table: tb.Table):
     template_data = tb.insert_missing_variables(template_data, template_attributes)
     #Only one template definition per table, so select the first row from the DataFrame
     return dict(template_data.iloc[0,:])
+
 
 def list_of_structures(structures, begin_text=None, sort_IDs=True):
     '''Assemble a text string that includes the begin_text (or default) and a
@@ -80,6 +81,7 @@ def list_of_structures(structures, begin_text=None, sort_IDs=True):
     struct_list = ', '.join(structure_IDs)
     struct_summary = begin_text + struct_list
     return struct_summary
+
 
 def add_preview(template, template_data):
     '''Add a the preview element to the template tree using the data in template_data.
@@ -106,6 +108,7 @@ def add_preview(template, template_data):
 
     return preview
 
+
 def make_template(template_data, structures, template_file: Path):
     '''Create a template XML from template and structure data.
     '''
@@ -126,21 +129,34 @@ def make_template(template_data, structures, template_file: Path):
     template_tree = ET.ElementTree(template)
     template_tree.write(str(template_file), encoding='UTF-8', xml_declaration=True, short_empty_elements=False)
 
+
 def build_templates(template_list, template_directory, output_path, structures_lookup):
     '''Build a collection of structure template files from the list of templates
     in template_list that describe template data in the template file. Structure
     data used for the templates comes from the structures_lookup data-frame.
     '''
-    for tmpl in  template_list:
-        LOGGER.debug('Building Template: %s' %tmpl['title'])
-        template_file_path = template_directory / tmpl['workbook_name']
-        (template_table, structures_table) = define_template_tables(
-            template_file_path, sheet_name=tmpl['sheet_name'],
-            tmpl_title= tmpl['title'], struc_columns=tmpl['Columns'])
-        #Load the template and structure data from the excel worksheet
-        template_data = build_template_data(template_table)
-        structures = build_structures_list(structures_table, structures_lookup)
-        # convert the template and structure data to an XML file
-        template_save_file = output_path / template_data['TemplateFileName']
-        template_tree = make_template(template_data, structures, template_save_file)
+    for template_def in template_list:
+        build_template(template_def, template_directory, output_path,
+                       structures_lookup)
 
+
+def build_template(template_def, template_directory, output_path,
+                   structures_lookup):
+    '''Build a structure template file from the list of templates
+    in template_list that describe template data in the template file. Structure
+    data used for the templates comes from the structures_lookup data-frame.
+    '''
+    template_file_path = template_directory / template_def['workbook_name']
+    (template_table, structures_table) = define_template_tables(
+        template_file_path,
+        sheet_name=template_def['sheet_name'],
+        tmpl_title= template_def['title'],
+        struc_columns=template_def['Columns']
+        )
+    #Load the template and structure data from the excel worksheet
+    template_data = build_template_data(template_table)
+    structures = build_structures_list(structures_table, structures_lookup)
+    # convert the template and structure data to an XML file
+    template_save_file = output_path / template_data['TemplateFileName']
+    template_tree = make_template(template_data, structures,
+                                  template_save_file)
