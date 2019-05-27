@@ -276,3 +276,6 @@ Examine XML/DataTransformation.csproj
 *.pyc
 Old Python code
 Old Python code
+*.pyc
+ManageStructuresTemplates/.vs/ManageStructuresTemplates/v15/.suo
+Old Python code
