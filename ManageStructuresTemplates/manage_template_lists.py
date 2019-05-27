@@ -242,7 +242,6 @@ def scan_template_worksheet(file, sheet, file_mod_time, structures_lookup):
     template_info['workbook_name'] = file.name
     template_info['sheet_name'] = sheet.name
     template_info['modification_date'] = file_mod_time
-        template_info['TemplateID'], sheet.name))
     structures = read_template_data(file, sheet, template_info,
                                     structures_lookup)
     num_structures = len(structures)
