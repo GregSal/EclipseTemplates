@@ -1,0 +1,114 @@
+pyinstaller
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    altgraph-0.16.1            |             py_0          19 KB  conda-forge
+    macholib-1.11              |             py_0          32 KB  conda-forge
+    pefile-2019.4.18           |             py_0          52 KB  conda-forge
+    pyinstaller-3.4            |   py37h7602738_1         2.6 MB  conda-forge
+    pywin32-ctypes-0.2.0       |        py37_1000          35 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:         2.7 MB
+
+The following NEW packages will be INSTALLED:
+
+  altgraph           conda-forge/noarch::altgraph-0.16.1-py_0
+  future             pkgs/main/win-64::future-0.17.1-py37_0
+  macholib           conda-forge/noarch::macholib-1.11-py_0
+  pefile             conda-forge/noarch::pefile-2019.4.18-py_0
+  pycrypto           pkgs/main/win-64::pycrypto-2.6.1-py37hfa6e2cd_9
+  pyinstaller        conda-forge/win-64::pyinstaller-3.4-py37h7602738_1
+  pywin32-ctypes     conda-forge/win-64::pywin32-ctypes-0.2.0-py37_1000
+  zlib               pkgs/main/win-64::zlib-1.2.11-h62dcd97_3
+
+xlwings
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    xlwings-0.15.8             |           py37_0         818 KB
+    ------------------------------------------------------------
+                                           Total:         818 KB
+
+The following NEW packages will be INSTALLED:
+
+  comtypes           pkgs/main/win-64::comtypes-1.1.7-py37_0
+  pywin32            pkgs/main/win-64::pywin32-223-py37hfa6e2cd_1
+  xlwings            pkgs/main/win-64::xlwings-0.15.8-py37_0
+
+
+pandas
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    pandas-0.24.2              |   py37ha925a31_0         9.6 MB
+    python-dateutil-2.8.0      |           py37_0         281 KB
+    pytz-2019.1                |             py_0         236 KB
+    ------------------------------------------------------------
+                                           Total:        10.1 MB
+
+The following NEW packages will be INSTALLED:
+
+  pandas             pkgs/main/win-64::pandas-0.24.2-py37ha925a31_0
+  python-dateutil    pkgs/main/win-64::python-dateutil-2.8.0-py37_0
+  pytz               pkgs/main/noarch::pytz-2019.1-py_0
+  six                pkgs/main/win-64::six-1.12.0-py37_0
+
+
+scipy
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    intel-openmp-2019.3        |              203         1.7 MB
+    mkl-2019.3                 |              203       157.4 MB
+    mkl_fft-1.0.12             |   py37h14836fe_0         136 KB
+    numpy-1.16.3               |   py37h19fb1c0_0          49 KB
+    numpy-base-1.16.3          |   py37hc3f5095_0         4.1 MB
+    scipy-1.2.1                |   py37h29ff71c_0        14.0 MB
+    ------------------------------------------------------------
+                                           Total:       177.4 MB
+
+The following NEW packages will be INSTALLED:
+
+  blas               pkgs/main/win-64::blas-1.0-mkl
+  icc_rt             pkgs/main/win-64::icc_rt-2019.0.0-h0cc432a_1
+  intel-openmp       pkgs/main/win-64::intel-openmp-2019.3-203
+  mkl                pkgs/main/win-64::mkl-2019.3-203
+  mkl_fft            pkgs/main/win-64::mkl_fft-1.0.12-py37h14836fe_0
+  mkl_random         pkgs/main/win-64::mkl_random-1.0.2-py37h343c172_0
+  numpy              pkgs/main/win-64::numpy-1.16.3-py37h19fb1c0_0
+  numpy-base         pkgs/main/win-64::numpy-base-1.16.3-py37hc3f5095_0
+  scipy              pkgs/main/win-64::scipy-1.2.1-py37h29ff71c_0
+
+
+python
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    pip-19.1.1                 |           py37_0         1.8 MB
+    python-3.7.3               |       h8c8aaf0_1        17.8 MB
+    setuptools-41.0.1          |           py37_0         680 KB
+    sqlite-3.28.0              |       he774522_0         945 KB
+    vs2015_runtime-14.15.26706 |       h3a45250_4         2.4 MB
+    wheel-0.33.4               |           py37_0          57 KB
+    ------------------------------------------------------------
+                                           Total:        23.6 MB
+
+The following NEW packages will be INSTALLED:
+
+  ca-certificates    pkgs/main/win-64::ca-certificates-2019.1.23-0
+  certifi            pkgs/main/win-64::certifi-2019.3.9-py37_0
+  openssl            pkgs/main/win-64::openssl-1.1.1b-he774522_1
+  pip                pkgs/main/win-64::pip-19.1.1-py37_0
+  python             pkgs/main/win-64::python-3.7.3-h8c8aaf0_1
+  setuptools         pkgs/main/win-64::setuptools-41.0.1-py37_0
+  sqlite             pkgs/main/win-64::sqlite-3.28.0-he774522_0
+  vc                 pkgs/main/win-64::vc-14.1-h0510ff6_4
+  vs2015_runtime     pkgs/main/win-64::vs2015_runtime-14.15.26706-h3a45250_4
+  wheel              pkgs/main/win-64::wheel-0.33.4-py37_0
+
+  wincertstore       pkgs/main/win-64::wincertstore-0.2-py37_0

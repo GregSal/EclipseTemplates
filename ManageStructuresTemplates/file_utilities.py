@@ -59,6 +59,7 @@ def set_base_dir(sub_dir: str = None,
     elif 'gsalomon' in cwd: # Work PC
         base_dir = Path(r"C:\Users\gsalomon\OneDrive - Queen's University")
     else:
+        # TODO Need alternative Base Path for compiled programs
         raise FileNotFoundError('Unknown Base Path')
     if sub_dir:
         base_dir = base_dir / sub_dir

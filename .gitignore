@@ -1,4 +1,12 @@
 
 Old Python code
 /ManageStructuresTemplates/__pycache__
-/ManageStructuresTemplates/.vs/ManageStructuresTemplates/v16
+/ManageStructuresTemplates/.vs
+/ManageStructuresTemplates/build
+/ManageStructuresTemplates/dist
+*.pyproj
+*.user
+*.pyproj
+/ManageStructuresTemplates/.mypy_cache
+/Examine XML/__pycache__
+/Colour Differences/__pycache__
