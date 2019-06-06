@@ -347,6 +347,7 @@ def main():
     template_list_file = template_directory / 'Template List.xlsx'
     structures_file_path = template_directory / 'Structure Lookup.xlsx'
     structures_pickle_file_path = template_directory / 'StructureData.pkl'
+    template_list_pickle_file_path = template_directory / 'TemplateData.pkl'
     template_table_info = dict(file_name=template_list_file,
                                sheet_name='templates',
                                new_file=True, new_sheet=True, replace=True)
@@ -355,7 +356,10 @@ def main():
 
     # rebuild_structures_lookup(structures_file_path, structures_pickle_file_path)
 
-    update_template_list(structure_table_info, structures_file_path, structures_pickle_file_path, template_directory, template_table_info)
+    update_template_list(template_directory, template_table_info,
+                         template_list_pickle_file_path,
+                         structure_table_info, structures_pickle_file_path,
+                         structures_file_path)
 
 
 if __name__ == '__main__':
