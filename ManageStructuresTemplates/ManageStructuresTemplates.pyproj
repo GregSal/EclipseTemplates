@@ -5,13 +5,13 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{bfe181bd-6e7e-46df-8f83-d4774ded37a7}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>xml_gui_builder.py</StartupFile>
+    <StartupFile>StructureTemplateManager.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <InterpreterId />
+    <InterpreterId>CondaEnv|CondaEnv|Structures</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -19,6 +19,7 @@
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="compile.bat" />
     <Content Include="GUI Layout.xlsx" />
     <Content Include="GUI_Builder.xsd" />
     <Content Include="icons\arrow-down.png" />
@@ -37,8 +38,14 @@
     <Content Include="icons\Small-triangle-rep-green.png" />
     <Content Include="icons\Target.png" />
     <Content Include="icons\Triangle-Down2.png" />
+    <Content Include="imports.txt" />
+    <Content Include="make_spec.bat" />
+    <Content Include="Modules In use.xlsx" />
+    <Content Include="requirements.txt" />
     <Content Include="StructuresGUI.xml" />
+    <Content Include="StructureTemplateManager.spec" />
     <Content Include="Tkinter_GUI.xsd" />
+    <Content Include="TODO Tasks.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="custom_variable_sets.py" />
@@ -54,11 +61,14 @@
     <Compile Include="template_config.py" />
     <Compile Include="tree_view.py" />
     <Compile Include="WriteStructureTemplate.py" />
-    <Compile Include="xml_gui_builder.py" />
+    <Compile Include="StructureTemplateManager.py" />
     <Compile Include="__init__.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="icons" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="CondaEnv|CondaEnv|Structures" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>

@@ -558,21 +558,27 @@ class GuiManager():
 
 
 def main():
-    '''Test methods and definitions.
+    '''Initialize and run the GUI
     '''
-    #gui_def_file = Path(r'.\FileSelectGUI.xml')
     gui_def_file = Path(r'.\StructuresGUI.xml')
-    variable_definitions = [{'name': 'test_string',
-                             'variable_type': StringV,
-                             'default': 'Hi There!'
-                             }
-                            ]
-    template_data_set = tp.TemplateSelectionsSet(variable_definitions)
+    template_data_set = tp.TemplateSelectionsSet()
     template_definitions = tp.load_template_list(template_data_set['template_pickle'])
     template_data_set['TemplateData'] = template_definitions
 
     gui = GuiManager(template_data_set, gui_def_file)
     gui.execute()
+
+    #strc_path = tp.make_path(template_data_set['structures_file'])
+    #tp.open_book(strc_path)
+
+    #strc_lu = tp.build_structures_lookup(strc_path)
+
+    #strc_pickle = tp.make_path(template_data['structures_pickle'])
+    #file = open(str(strc_pickle), 'wb')
+    #dump(strc_lu, file)
+    #file.close()
+    #template_data_set['selected_templates'] = 'HN10'
+    #tp.build_xml(template_data_set)
 
 if __name__ == '__main__':
     main()

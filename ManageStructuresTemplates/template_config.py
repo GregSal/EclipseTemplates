@@ -24,6 +24,21 @@ from manage_template_lists import find_template_files
 
 
 StringValue = Union[tk.StringVar, str]
+PathValue = Union[str, Path, PathV, StringV, StrPathV]
+
+def make_path(variable: PathValue)->Path:
+    '''Convert a str, Path, PathV, StringV or StrPathV into type Path.
+    Arguments:
+        variable {str, Path, PathV, StringV, StrPathV} -- A full path value.
+    Returns:
+        {Path} -- The value of variable converted to type Path.
+    '''
+    try:
+        path_str = variable.value
+    except AttributeError:
+        path_str = variable
+    return Path(path_str)
+
 
 
 class TemplateSelectionsSet(CustomVariableSet):
@@ -216,15 +231,15 @@ def build_xml(template_data: TemplateSelectionsSet,
     selections_list = selected_templates.splitlines()
     if not selections_list:
         return None
-    strc_pickle = template_data['structures_pickle'].value
+    strc_pickle = make_path(template_data['structures_pickle'])
     strc_lu = load_structure_references(strc_pickle)
     template_list = template_data['TemplateData']
     template_indxer = template_list['TemplateID'].isin(selections_list)
     column_selection = ['title', 'Columns', 'TemplateFileName',
                         'workbook_name', 'sheet_name']
     selected_templates = template_list.loc[template_indxer, column_selection]
-    template_dir = Path(template_data['spreadsheet_directory'])
-    output_path = Path(template_data['output_directory'])
+    template_dir = make_path(template_data['spreadsheet_directory'])
+    output_path = make_path(template_data['output_directory'])
     num_templates = len(selections_list)
     if status_updater is not None:
         status_updater('Building  %d Templates...' %num_templates)
@@ -274,11 +289,11 @@ def update_template_data(template_data: TemplateSelectionsSet,
             step_progressbar()
 
     # Initialize the required variables
-    template_dir = Path(template_data['spreadsheet_directory'])
-    template_file = template_data['template_list_file']
-    template_pkl = template_data['template_pickle']
-    strc_path = template_data['structures_file'].value
-    strc_pickle = template_data['structures_pickle']
+    template_dir = make_path(template_data['spreadsheet_directory'])
+    template_file = make_path(template_data['template_list_file'])
+    template_pkl = make_path(template_data['template_pickle'])
+    strc_path = make_path(template_data['structures_file'])
+    strc_pickle = make_path(template_data['structures_pickle'])
     tmpl_tbl_def = dict(file_name=template_file, sheet_name='templates',
                         new_file=True, new_sheet=True, replace=True)
     strc_tbl_def = tmpl_tbl_def.copy()
