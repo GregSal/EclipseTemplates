@@ -95,6 +95,60 @@ ArgType = TypeVar('ArgType', List[Any], Dict[str, Any])
 # TODO Need to clean extra white space from all findtext calls
 # TODO Need to pass all findtext results through resolve
 # TODO Need method to handle binding events
+# FIXME Template data is not updated after file selection change
+
+
+def load_default_paths(default_xml_file: Path)->Dict[str, Path]:
+    tree = ET.parse(str(default_xml_file))
+    root = tree.getroot()
+    reference_paths = dict()
+    default_paths = dict()
+    references = root.find('ReferenceDirectories')
+    for reference in references.findall('Reference'):
+        reference_name = reference.attrib.get('Name')
+        parent = reference.find('Parent')
+        type = parent.attrib.get('Type')
+        if "Absolute" in type:
+            parent_path = Path(parent.text)
+        elif "Reference" in type:
+            parent_path = reference_paths.get(parent.text)
+        elif "Relative" in type:
+            parent_path = set_base_dir(parent.text)
+        else:
+            parent_path = Path.cwd()
+        directory = reference.find('Directory')
+        if directory is not None:
+            reference_path = parent_path / directory.text
+        else:
+            reference_path = parent_path
+        reference_paths[reference_name] = reference_path
+
+    path_definitions = root.find('PathDefinitions')
+    for path_def in path_definitions.findall('Path'):
+        path_name = path_def.attrib.get('Name')
+        parent = path_def.find('Parent')
+        type = parent.attrib.get('Type')
+        if "Absolute" in type:
+            parent_path = Path(parent.text)
+        elif "Reference" in type:
+            parent_path = reference_paths.get(parent.text)
+        elif "Relative" in type:
+            parent_path = set_base_dir(parent.text)
+        else:
+            parent_path = Path.cwd()
+        directory = path_def.find('Directory')
+        if directory is not None:
+            reference_path = parent_path / directory.text
+        else:
+            reference_path = parent_path
+        file_name = path_def.find('FileName')
+        if file_name is not None:
+            default_path = reference_path / file_name.text
+        else:
+            default_path = reference_path
+        default_paths[path_name] = default_path
+    return default_paths
+
 
 
 def load_xml(xml_file: Path)->ET.ElementTree:
@@ -560,8 +614,14 @@ class GuiManager():
 def main():
     '''Initialize and run the GUI
     '''
+    default_paths_file = Path(r'.\DefaultPaths.xml')
+    default_paths = load_default_paths(default_paths_file)
     gui_def_file = Path(r'.\StructuresGUI.xml')
     template_data_set = tp.TemplateSelectionsSet()
+    for path_default in default_paths:
+        if path_default in template_data_set:
+            template_data_set[path_default] = default_paths[path_default]
+
     template_definitions = tp.load_template_list(template_data_set['template_pickle'])
     template_data_set['TemplateData'] = template_definitions
 

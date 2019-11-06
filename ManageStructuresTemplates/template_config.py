@@ -6,9 +6,10 @@ Configuration data for Structure templates GUI
 '''
 
 
-from typing import List, Union, Callable
+from typing import List, Dict, Union, Callable
 from pathlib import Path
 from pickle import dump, load
+import xml.etree.ElementTree as ET
 import tkinter as tk
 from tkinter import messagebox
 import pandas as pd
@@ -40,7 +41,6 @@ def make_path(variable: PathValue)->Path:
     return Path(path_str)
 
 
-
 class TemplateSelectionsSet(CustomVariableSet):
     '''The file paths etc. required to manage the templates.
     Parent Class: {CustomVariableSet}
@@ -66,49 +66,41 @@ class TemplateSelectionsSet(CustomVariableSet):
         selected_templates {StringV} -- List of selected templates.
         status {StringV} -- Status string.
     '''
-    base_dir = set_base_dir(r'Work\Structure Dictionary')
-    template_dir = base_dir / 'Template Spreadsheets'
     variable_definitions = [
         {
             'name': 'spreadsheet_directory',
             'variable_type': StrPathV,
             'file_types': 'directory',
-            'default': template_dir,
             'required': False
         },
         {
             'name': 'output_directory',
             'variable_type': StrPathV,
             'file_types': 'directory',
-            'default': base_dir / 'Template XML Files',
             'required': False
         },
         {
             'name': 'structures_file',
             'variable_type': PathV,
             'file_types': 'Excel Files',
-            'default': template_dir / 'Structure Lookup.xlsx',
             'required': False
         },
         {
             'name': 'structures_pickle',
             'variable_type': PathV,
             'file_types': 'Pickle File',
-            'default': template_dir / 'StructureData.pkl',
             'required': False
         },
         {
             'name': 'template_list_file',
             'variable_type': PathV,
             'file_types': 'Excel Files',
-            'default': template_dir / 'Template List.xlsx',
             'required': False
         },
         {
             'name': 'template_pickle',
             'variable_type': PathV,
             'file_types': 'Pickle File',
-            'default': template_dir / 'TemplateData.pkl',
             'required': False
         },
         {
@@ -256,13 +248,13 @@ def build_xml(template_data: TemplateSelectionsSet,
         status_updater('Done!')
     pass
 
-def update_template_data(template_data: TemplateSelectionsSet,
+def update_template_data(template_parameters: TemplateSelectionsSet,
                          status_updater: Callable = None,
                          init_progressbar: Callable = None,
                          step_progressbar: Callable = None):
     '''Update the primary list of templates.
     Arguments:
-        template_data {TemplateSelectionsSet} -- The file paths etc. required
+        template_parameters {TemplateSelectionsSet} -- The file paths etc. required
             to update the primary list of templates.
     Keyword Arguments:
         status_updater {Callable} -- A method that updates a status
@@ -289,11 +281,21 @@ def update_template_data(template_data: TemplateSelectionsSet,
             step_progressbar()
 
     # Initialize the required variables
-    template_dir = make_path(template_data['spreadsheet_directory'])
-    template_file = make_path(template_data['template_list_file'])
-    template_pkl = make_path(template_data['template_pickle'])
-    strc_path = make_path(template_data['structures_file'])
-    strc_pickle = make_path(template_data['structures_pickle'])
+    template_dir = make_path(template_parameters['spreadsheet_directory'])
+    file_info = 'Template Directory: ' + str(template_dir)
+    update_status(file_info, 5)
+    template_file = make_path(template_parameters['template_list_file'])
+    file_info = 'Template File: ' + str(template_file)
+    update_status(file_info)
+    template_pkl = template_file.parent / make_path(template_parameters['template_pickle']).name
+    file_info = 'Template Pickle File: ' + str(template_pkl)
+    update_status(file_info)
+    strc_path = template_dir / make_path(template_parameters['structures_file']).name
+    file_info = 'Structure Lookup File: ' + str(strc_path)
+    update_status(file_info)
+    strc_pickle = template_dir / make_path(template_parameters['structures_pickle']).name
+    file_info = 'Structure Lookup Pickle File: ' + str(strc_pickle)
+    update_status(file_info)
     tmpl_tbl_def = dict(file_name=template_file, sheet_name='templates',
                         new_file=True, new_sheet=True, replace=True)
     strc_tbl_def = tmpl_tbl_def.copy()
@@ -326,3 +328,5 @@ def update_template_data(template_data: TemplateSelectionsSet,
     dump(template_data, file)
     file.close()
     update_status('Done')
+    template_definitions = load_template_list(template_pkl)
+    template_parameters['TemplateData'] = template_definitions

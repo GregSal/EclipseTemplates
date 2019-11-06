@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Studio 2019 (https://www.liquid-technologies.com) -->
+<DefaultPaths>
+  <ReferenceDirectories>
+    <Reference Name="Base">
+      <Parent Type="Absolute">\\dkphysicspv1\e$\Gregs_Work\Eclipse\Template Management</Parent>
+      <Directory>External Beam Templates</Directory>
+    </Reference>
+    <Reference Name="Structures">
+      <Parent Type="Reference">Base</Parent>
+      <Directory>Structure Templates\Template Spreadsheets</Directory>
+    </Reference>
+  </ReferenceDirectories>
+  <PathDefinitions>
+    <Path Name="spreadsheet_directory" Type="Directory">
+      <Parent Type="Reference">Structures</Parent>
+      <Directory>.</Directory>
+    </Path>
+    <Path Name="output_directory" Type="Directory">
+      <Parent Type="Reference">Base</Parent>
+      <Directory>Template XML Files</Directory>
+    </Path>
+    <Path Name="structures_file" Type="Excel Files">
+      <Parent Type="Reference">Structures</Parent>
+      <FileName>Structure Lookup.xlsx</FileName>
+    </Path>
+    <Path Name="structures_pickle" Type="Pickle File">
+      <Parent Type="Reference">Structures</Parent>
+      <FileName>StructureData.pkl</FileName>
+    </Path>
+    <Path Name="template_list_file" Type="Excel Files">
+      <Parent Type="Reference">Structures</Parent>
+      <FileName>Template List.xlsx</FileName>
+    </Path>
+    <Path Name="template_pickle" Type="Pickle File">
+      <Parent Type="Reference">Structures</Parent>
+      <FileName>TemplateData.pkl</FileName>
+    </Path>
+  </PathDefinitions>
+</DefaultPaths>
+

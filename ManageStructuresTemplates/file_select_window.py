@@ -172,7 +172,7 @@ class SelectFile():
         else:
             initial_path = Path(self.initialdir)
         if initial_path.is_file():
-            self.initialdir = str(initial_path.master)
+            self.initialdir = str(initial_path.parent)
             self.initialfile = initial_path.name
         elif initialfile is not None:
             self.initialfile = initialfile
