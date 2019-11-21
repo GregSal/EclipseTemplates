@@ -425,7 +425,6 @@ def merge_tables(spreadsheet_file, tables_list, variables_list=None):
     if not spreadsheet_file.exists():
         raise MissingSpreadsheet('File {} does not exist.'.format(str(spreadsheet_file)))
     workbook =  pd.ExcelFile(spreadsheet_file)
-    print(workbook)
     sheet_list = workbook.sheet_names
     for table in tables_list:
         # Check that worksheet exists
