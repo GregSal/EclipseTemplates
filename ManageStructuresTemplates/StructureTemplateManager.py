@@ -516,7 +516,7 @@ class GuiManager():
         pass
 
     def configure_window(self, window_def):
-        '''Apply window settings settings given in the XML element.
+        '''Apply window settings given in the XML element.
         Arguments:
             window_def {ET.Element} -- The Window Definition XML Element.
         '''
@@ -553,7 +553,7 @@ class GuiManager():
         pass
 
     def configure_widgets(self):
-        '''Apply all widget settings settings given in the GUI XML file.
+        '''Apply all widget settings given in the GUI XML file.
         '''
         for widget_def in self.definition.findall(r'.//WidgetSet/*'):
             name = widget_def.attrib['name']
@@ -598,6 +598,13 @@ class GuiManager():
         for variable_name in self.data_link:
             self.update_variable(variable_name, 'to_data')
         pass
+
+    def update_tree_data(self, tree_name: str):
+        '''Copy all TK variable values to their corresponding application
+            data item.
+        '''
+        search_pattern = str(r'.//Tree[@name={}]').format(tree_name)
+        tree_def = self.definition.find(search_pattern)
 
     def update_and_run(self, command: Callable, *args, **kwargs):
         '''A helper partial that forces a call to update_data before running

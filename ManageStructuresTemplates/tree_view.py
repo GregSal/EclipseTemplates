@@ -104,7 +104,21 @@ class TreeSelector(ttk.Treeview):
         self.set_columns(column_set)
         level_set = tree_def.find('LevelSet')
         self.set_column_levels(level_set)
-        item_set = self.reference.resolve( column_set.findtext('ItemData'))
+        item_set = self.reference.resolve(column_set.findtext('ItemData'))
+        self.insert_tree_items(item_set)
+        tag_set = tree_def.find('TagSet')
+        self.set_tags(tag_set)
+
+    def clear(self):
+        '''Remove all tree items.
+        '''
+        all_items = self.get_children()
+        self.delete(all_items)
+
+    def refresh(self, tree_def: ET.Element, reference_set: ReferenceTracker):
+        self.reference = reference_set
+        column_set = tree_def.find('ColumnSet')
+        item_set = self.reference.resolve(column_set.findtext('ItemData'))
         self.insert_tree_items(item_set)
         tag_set = tree_def.find('TagSet')
         self.set_tags(tag_set)
