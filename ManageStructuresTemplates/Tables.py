@@ -80,12 +80,12 @@ class Table(object):
                         if None, column headers are not checked
     Methods
         __init__
-			Set attributes
-			Verify that attributes are reasonable
+            Set attributes
+            Verify that attributes are reasonable
         read Table
-			read in the table data from the worksheet
+            read in the table data from the worksheet
             set index if defined
-			Test that the table is valid based on the table attributes defined
+            Test that the table is valid based on the table attributes defined
     Raises
         MissingSpreadsheet
         MissingTable
@@ -101,19 +101,19 @@ class Table(object):
                 The path to the spreadsheet file
             sheet_name: Required,   Type str
                 The name of the worksheet in the excel file
-		    title:      Optional,   Type str
+            title:      Optional,   Type str
                 The title of the table as found in the top cell,
                     if None, no table title should be present
-		    offset:      Optional,   Type 2 element tuple or str in A1 format
+            offset:      Optional,   Type 2 element tuple or str in A1 format
                 The expected offset to the top right corner of the table,
                     if None, A1 is used
-		    columns:     Optional,   Type integer or range
+            columns:     Optional,   Type integer or range
                 An expected range of columns,
                     if None, # columns testing is not done
-		    rows:     Optional,   Type integer or range
+            rows:     Optional,   Type integer or range
                 An expected range of columns,
                     if None, # rows testing is not done
-		    index:     Optional,   Type str
+            index:     Optional,   Type str
                 The header string of the index column
                     if None, no index is assigned
         Raises
@@ -190,7 +190,7 @@ class Table(object):
            set index if defined
         Parameters
             workbook    Optional,   Type Pandas ExcelFile
-				The workbook containing the sheet with the table
+                The workbook containing the sheet with the table
             drop_missing    Optional,   Type boolean
                 If true remove rows containing all missing values
         Returns
@@ -268,7 +268,7 @@ class Variable(object):
     Attributes
         ID:             Name of variable Type str
         variable_type:  The variable category.  Must member of VARIABLE_TYPES global tuple
-		default:        Default value for the variable.
+        default:        Default value for the variable.
                         If None, The variable value must always be explicitly given.
         validate:       A one parameter function that returns a boolean indicating
                         if the variable value is valid.  Called in check_values.
@@ -276,8 +276,8 @@ class Variable(object):
         conversion      Method to convert data type, currently forces string conversion
     Methods
         __init__
-			Set attributes
-			Verify that attributes are reasonable
+            Set attributes
+            Verify that attributes are reasonable
         check_value
             apply validate function(s) to value parameters
         update_default
@@ -299,7 +299,7 @@ class Variable(object):
             validate:       Optional,   Type callable
                             A one parameter function that returns a boolean indicating
                             if the variable value is valid.  Called in check_values.
-		    default:        Optional,
+            default:        Optional,
                             Default value for the variable.
                             If None, The variable value must always be explicitly given.
         Raises
@@ -364,8 +364,8 @@ class Variable(object):
 
 def select_variables(table, variables):
     '''Selects the variables found in table and checks that its values are valid
-	Parameters
-		table:
+    Parameters
+        table:
             Required,   Type DataFrame
         variables:
                 Required,   Type dict,
@@ -374,8 +374,8 @@ def select_variables(table, variables):
     Returns:
         A subset of table containing only the columns found in variables or
         None if no columns found.
-	Raises
-	    InvalidAttribute
+    Raises
+        InvalidAttribute
     '''
     #select variables Make this a Table method
     # find columns with specified variables
@@ -397,8 +397,8 @@ def select_variables(table, variables):
 def merge_tables(spreadsheet_file, tables_list, variables_list=None):
     '''Reads in, validates and merges a list of tables
     Only variables in the variables dictionary are merged
-	Parameters
-		spreadsheet_file:
+    Parameters
+        spreadsheet_file:
                 Required,   Type Path,
                 The path to the spreadsheet file
         tables_list:
@@ -411,12 +411,12 @@ def merge_tables(spreadsheet_file, tables_list, variables_list=None):
                 Optional,   Type dict,
                 A dict of the Variable objects defining each table variable
     Returns
-		merged_table:
+        merged_table:
             A Pandas data-frame created by merging all excel tables read in
-	Raises
-		MissingSpreadsheet
+    Raises
+        MissingSpreadsheet
         MissingTable
-	    InvalidAttribute
+        InvalidAttribute
     '''
     #Initialize lists
     variables_imported = list()
@@ -455,14 +455,14 @@ def process_defaults(table: pd.DataFrame, variables: dict):
     '''Searches for 'default' in the index and updates the default value for
     each variable that contains a valid value.
     Parameters
-		table:
+        table:
                 Required,   Type DataFrame,
                 The table to be searched.
         variables:
                 Required,   Type dict,
                 A dictionary of the Variable objects found in table to be updated.
     Returns
-		updated_variables:
+        updated_variables:
             The variables_list with updated default values.
             The method does not return a deep copy so the new list returned
             will be pointing to the original Variable objects.
@@ -490,14 +490,14 @@ def insert_defaults(table: pd.DataFrame, variables: list):
     default value from the variables.
     If a default value is not found (is None) the null is not changed
     Parameters
-		table:
+        table:
                 Required,   Type DataFrame,
                 The table to be searched.
         variables:
                 Required,   Type dict,
                 The dictionary of Variable objects containing the default values.
     Returns
-		updated_table:
+        updated_table:
             A copy of the table DataFrame with null values replaced with
             default values.
     '''
@@ -519,7 +519,7 @@ def insert_missing_variables(table: pd.DataFrame, variables: list):
     If a missing variable does not have a default value it is not added to
     the table.
     Parameters
-		table:
+        table:
                 Required,   Type DataFrame,
                 The table to be expanded with missing variables.
         variables:
@@ -527,7 +527,7 @@ def insert_missing_variables(table: pd.DataFrame, variables: list):
                 The dictionary of Variable objects containing the default
                 values.
     Returns
-		updated_table:
+        updated_table:
             A copy of the table DataFrame with the default values of the
             missing variables added.
     '''
