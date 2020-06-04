@@ -278,7 +278,7 @@
             <ColumnSet>
               <ItemData>D::TemplateData</ItemData>
               <Column name="StructureTemplates"
-                      data_reference="spreadsheet_name"
+                      data_reference="TemplateID"
                       show="tree">
                 <ColumnDef minwidth="95"
                            anchor="w"
