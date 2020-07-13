@@ -1,10 +1,10 @@
-# -*- mode: python -*-
+# -*- mode: python ; coding: utf-8 -*-
 
 block_cipher = None
 
 
 a = Analysis(['StructureTemplateManager.py'],
-             pathex=["C:\\Users\\gsalomon\\OneDrive - Queen's University\\Python\\Projects\\EclipseRelated\\Manage Templates\\ManageStructuresTemplates"],
+             pathex=['..\\Utilities', "D:\\QueensOneDrive\\OneDrive - Queen's University\\Python\\Projects\\EclipseRelated\\Manage Templates\\ManageStructuresTemplates"],
              binaries=[],
              datas=[('StructuresGUI.xml', '.'), ('.\\icons\\Box2.png', 'icons'), ('.\\icons\\Blueprint2.png', 'icons'), ('.\\icons\\DVH Black smaller.png', 'icons'), ('.\\icons\\DVH2.ico', 'icons')],
              hiddenimports=[],
@@ -33,4 +33,5 @@ coll = COLLECT(exe,
                a.datas,
                strip=False,
                upx=True,
+               upx_exclude=[],
                name='StructureTemplateManager')

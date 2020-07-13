@@ -1,4 +1,4 @@
-pyinstaller --noconfirm --log-level=WARN ^
+pyi-makespec -F -w --paths="..\Utilities" --log-level=WARN ^
     --onedir --nowindow ^
     --add-data="StructuresGUI.xml;." ^
     --add-data=".\icons\Box2.png;icons" ^
@@ -9,4 +9,5 @@ pyinstaller --noconfirm --log-level=WARN ^
     --exclude-module PyQt5 ^
     StructureTemplateManager.py
 
+Pyinstaller --clean StructureTemplateManager.spec
 

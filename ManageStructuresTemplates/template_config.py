@@ -15,7 +15,6 @@ from tkinter import messagebox
 import pandas as pd
 from custom_variable_sets import CustomVariableSet
 from custom_variable_sets import PathV, StringV, StrPathV
-from file_utilities import set_base_dir
 from spreadsheet_tools import open_book, append_data_sheet
 from StructureData import load_structure_references
 from WriteStructureTemplate import build_template

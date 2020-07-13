@@ -11,8 +11,9 @@
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <InterpreterId>CondaEnv|CondaEnv|Structures</InterpreterId>
+    <InterpreterId>CondaEnv|CondaEnv|StructuresTemplate</InterpreterId>
     <IsWindowsApplication>True</IsWindowsApplication>
+    <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -21,6 +22,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="compile.bat" />
+    <Content Include="DefaultPaths.xml" />
     <Content Include="GUI Layout.xlsx" />
     <Content Include="GUI_Builder.xsd" />
     <Content Include="icons\arrow-down.png" />
@@ -40,6 +42,7 @@
     <Content Include="icons\Target.png" />
     <Content Include="icons\Triangle-Down2.png" />
     <Content Include="imports.txt" />
+    <Content Include="Installed Packages.txt" />
     <Content Include="make_spec.bat" />
     <Content Include="Modules In use.xlsx" />
     <Content Include="requirements.txt" />
@@ -69,7 +72,7 @@
     <Folder Include="icons" />
   </ItemGroup>
   <ItemGroup>
-    <InterpreterReference Include="CondaEnv|CondaEnv|Structures" />
+    <InterpreterReference Include="CondaEnv|CondaEnv|StructuresTemplate" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>

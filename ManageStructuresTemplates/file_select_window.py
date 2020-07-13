@@ -17,7 +17,7 @@ import tkinter as tk
 import tkinter.ttk as ttk
 import tkinter.filedialog as tkf
 from file_utilities import FileTypes, get_file_path, make_full_path
-from file_utilities import set_base_dir, PathInput
+from file_utilities import PathInput
 
 FileTypeSelection = Union[List[str], FileTypes]
 StringValue = Union[tk.StringVar, str]
@@ -87,7 +87,7 @@ class SelectFile():
     initialdir = None
     default_attributes = dict(
         action='save', filetypes=FileTypes(), check_validity=False,
-        master=None, title='', initialdir=str(set_base_dir()),
+        master=None, title='', initialdir=str(Path.cwd()),
         mustexist=False, initialfile=None, typevariable=None,
         confirmoverwrite=False, defaultextension=None)
     action_options = ('save', 'open', 'dir')

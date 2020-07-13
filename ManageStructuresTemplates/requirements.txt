@@ -4,3 +4,4 @@ pandas>=0.24.2
 PyInstaller>=3.4
 scipy>=1.2.1
 xlwings>=0.15.4
+xlrd>=1.2.0

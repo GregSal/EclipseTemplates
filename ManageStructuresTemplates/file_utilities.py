@@ -203,7 +203,7 @@ def get_file_path(file_name: PathInput, sub_dir: str = None,
     if base_path:
         base_dir = base_path.resolve()
     else:
-        base_dir = set_base_dir()
+        base_dir = Path.cwd()
     if sub_dir:
         base_dir = base_dir / sub_dir
     full_path = base_dir / file_name

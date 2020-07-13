@@ -5,7 +5,7 @@ from pathlib import Path
 from abc import ABC, abstractmethod
 from collections import OrderedDict
 from typing import Optional, List, Dict, Tuple, Set, Any, Union
-from file_utilities import FileTypes, set_base_dir, make_full_path
+from file_utilities import FileTypes, make_full_path
 from file_utilities import PathInput, FileTypeError
 from data_utilities import true_iterable, logic_match
 
@@ -705,7 +705,7 @@ class PathV(CustomVariable):
         if base_directory:
             self.base_directory = base_directory
         else:
-            self.base_directory = set_base_dir()
+            self.base_directory = Path.cwd()
         super().__init__(*args, **kwds)
 
     def get_types(self)->List[str]:

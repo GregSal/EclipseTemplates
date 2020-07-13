@@ -10,7 +10,7 @@ from pickle import dump, load
 import xlwings as xw
 import pandas as pd
 
-from file_utilities import set_base_dir, get_file_path, get_file_mod_time
+from file_utilities import get_file_path, get_file_mod_time
 from spreadsheet_tools import open_book, load_definitions, append_data_sheet
 from data_utilities import drop_empty_items
 
@@ -86,7 +86,7 @@ def set_structures_selection(structures: Data)->Data:
                       'DVHLineStyle', 'DVHLineColor', 'SearchCTLow',
                       'SearchCTHigh', 'TemplateID', 'TemplateType',
                       'Description', 'Diagnosis', 'TreatmentSite',
-                      'TemplateCategory', 'Status', 'template_file_name',
+                      'TemplateCategory', 'Status', 'TemplateFileName',
                       'Author', 'ApprovalStatus')
     structure_selection = structures.loc[:,structure_vars]
     return structure_selection
@@ -342,8 +342,8 @@ def select_templates(template_list_path: Path, selections_list=None):
 
 
 def main():
-    template_directory = set_base_dir(
-            r'Work\Structure Dictionary\Template Spreadsheets')
+    base_dir = Path(r'\\dkphysicspv1\e$\Gregs_Work')
+    template_directory = base_dir / r'\Eclipse\Template Management\External Beam Templates\Structure Templates\Template Spreadsheets'
     template_list_file = template_directory / 'Template List.xlsx'
     structures_file_path = template_directory / 'Structure Lookup.xlsx'
     structures_pickle_file_path = template_directory / 'StructureData.pkl'
